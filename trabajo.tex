@@ -1,0 +1,62 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{color} %Use custom colors and give color to text
+\usepackage{graphicx} %Include images
+\usepackage{enumerate}
+
+\author{\textbf{Gustavo Rivas Gervilla}}
+\title{\textcolor{deepblue}{\textbf{Lógica difusa para la descripción de datos}}}
+\date{}
+
+%Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+
+\begin{document}
+\pagenumbering{gobble} %turn off page enumeration
+\maketitle
+\begin{center}
+\includegraphics[scale=0.5]{img/decsai}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic} %turn on page enumeration
+\section{Introducción}
+
+Actualmente existe una gran cantidad de información que nos llega en distintos formatos. Por ejemplo nos pueden llegar en forma de tabla o forma de serie temporal. En caso de ser usuarios expertos podremos trabajar con estos datos y obtener las conclusiones que necesitemos para completar la tarea que estemos abordando, por ejemplo aplicando técnicas de minería de datos en caso de que poseyamos el conocimiento necesario para ello.\\
+
+Pero la información no siempre va destinada a usuarios expertos con lo realizar una análisis de los datos en bruto para obtener una información que les sea de utilidad puede resultar muy complejo o imposible para ellos. Así que elebarorar una descripción linguística en forma de texto compresible por el usuario de los datos se ha convertido en los últimos tiempos en algo fundamental.\\
+
+Hoy en día, la tarea de generar información intendible por los usuarios usando lenguaje natural (que es al fin y al cabo el que maneja el usuario en su día a día) ha sido abordada desde dos campos: el de la generación de languaje natural (\textbf{NLG}, por sus siglas en inglés) y el de la descripción lingüística de datos (\textbf{LDD}, por sus siglas en inglés). Pese a que estos dos campos son en inicio independiente la tendencia que están siguiendo el avance en ambos los llevará finalmente a converger.\\
+
+El campo de la NLG se centra en la creación de textos que proporcionan información contenida en diversos formatos con el propósito de que esos textos sean indistinguibles, tanto como sea posible, de uno creado por humanos. Por el otro lado, el campo de la LDD, que aparece como un a de las principales aplicaciones de la \textbf{teoría de conjuntos difusos}, proporciona resúmenes o descripciones de conjuntos de datos empleando conceptos lingüísticos definidos en forma de conjuntos difusos y particiones difusas, lo que le permite tratar con la imprecisión inherente al lenguaje natural. Aquí se remarca una capacidad muy importante de los conjuntos difusos y es que nos permiten representar conceptos que no tienen una definición precisa y que están sujetos a la subjetividad de cada persona.\\
+
+El campo de la NLG es más antiguo que el de la LDD, este campo comenzó a desarrollarse en los 80, y pese a tener ya un tiempo de desarrollo continúa siendo un campo de investigación abierto en muchos aspectos y no hay una técnica única para abordar los problemas de generación de lenguaje natural.\\
+
+Por otro lado la descripción lingüística de datos trata de obtener descripciones concisas e informativas de \textit{datasets} numéricos y cubre un grupo de técnicas basadas en soft computing, como las variables lingüísticas o los cuantificadores y operadores difusos. Este campo comenzó a desarrollarse con fuerza a mediados de los 90 con el avance en el campo de los conjuntos difusos, dando lugar a nuevas aplicaciones en el enfoque descriptivo del \textit{data mining}.\\
+
+\subsection{NLG}
+
+John Bateman describió la generación de lenguaje natural como la rama del procesamiento de lenguaje natural que trata el problema crear automáticamente con una máquina textos en lenguaje natural.\\
+
+La demanda de textos en lenguaje natural que proporcionen todo tipo de información está aumentando actualmente. Algunos ejemplos que podemos destacar de la NLG son \textbf{genración de partes meteorológicos en diversos idiomas a partir de datos meteorológicos}, \textbf{generación de cartas de respuesta a clientes}, \textbf{generación de informes sobre el estado de recien nacidos}. Pese a que nosotros queremos hablar sobre 
+\subsection{LDD}
+\section{TFG (título provisional)}
+
+\newpage
+
+\section{Bibliografía}
+\begin{enumerate}[{[}1{]}]
+\item \textbf{On the role of linguistic descriptions of data in the building of natural language generation systems.} A. Ramos-Soto, A. Bugarín y S.Barro. Elsevier. Fuzzy sets and systems. \textit{13 de Julio de 2015}.
+\item \textbf{On generating linguistic descriptions of time series.} Nicolás Marín y Daniel Sánchez. Elsevier. Fuzzy sets and systems. \textit{4 de Mayo de 2015}.
+\end{enumerate}
+\end{document}
