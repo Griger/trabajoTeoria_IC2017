@@ -17,6 +17,9 @@
 %Custom colors
 \definecolor{deepblue}{rgb}{0,0,0.5}
 
+%Custom itemize bullet
+\def\labelitemi{$\blacktriangleright$}
+
 \begin{document}
 \pagenumbering{gobble} %turn off page enumeration
 \maketitle
@@ -48,9 +51,27 @@ Por otro lado la descripción lingüística de datos trata de obtener descripcio
 
 John Bateman describió la generación de lenguaje natural como la rama del procesamiento de lenguaje natural que trata el problema crear automáticamente con una máquina textos en lenguaje natural.\\
 
-La demanda de textos en lenguaje natural que proporcionen todo tipo de información está aumentando actualmente. Algunos ejemplos que podemos destacar de la NLG son \textbf{genración de partes meteorológicos en diversos idiomas a partir de datos meteorológicos}, \textbf{generación de cartas de respuesta a clientes}, \textbf{generación de informes sobre el estado de recien nacidos}. Pese a que nosotros queremos hablar sobre 
-\subsection{LDD}
-\section{TFG (título provisional)}
+La demanda de textos en lenguaje natural que proporcionen todo tipo de información está aumentando actualmente. Algunos ejemplos que podemos destacar de la NLG son \textbf{genración de partes meteorológicos en diversos idiomas a partir de datos meteorológicos}, \textbf{generación de cartas de respuesta a clientes}, \textbf{generación de informes sobre el estado de recien nacidos}. Pese a que nosotros queremos hablar sobre aplicaciones de la lógica difusa en descripción lingüística de datos, comentamos estas aplicaciones ya que como te comentó anteriormente y teniendo en cuenta que en este tipo de aplicaciones se trabaja con conceptos procedentes del lenguaje natural; más tarde o más temprano la lógica difusa enriquecerá y potenciará todas las aplicaciones que hemos enumerado.\\
+
+A continuación vamos a dar una pequeña descripción de cómo se diseña un sistema de NLG, ya que algunas de las fases que vamos a enumerar tendrán su correspondencia con el diseño de la aplicación final que vamos a comentar.
+
+\subsubsection{Diseño de un sistema de NLG}
+
+El diseño de un sistema de generación de lenguaje natural es algo abierto en la que no hay una guía concreta que seguir. Dependerá del propio diseñador y del problema a resolver. No obstante podemos desglosar la tarea principal que afrontará cualquiera de estos sistemas (convertir unos datos de entrada en un texto) en una serie de tareas que podríamos considerar, en mayor o menor medida, como comunes a todos los sitemas de NLG:
+
+\begin{itemize}
+\item \textbf{Determinación del contenido:} decicir qué información se ha de comunicar por medio del texto a crear.
+\item \textbf{Planificación del discurso:} dar un orden y una estructura al conjunto de mensajes a verbalizar.
+\item \textbf{Agrupación de oraciones:} agrupar varios mensajes en una sola oración. Esta tarea no es siempre necesaria, en tanto en cuanto cada mensaje puede ser expresado por medio de una oración de forma individual.
+\item \textbf{Lexicalización:} decidir que palabras y expresiones han de usarse para expresar los conceptos y relaciones del dominio que aparecen en los mensajes.
+\item \textbf{Geración de las expresiones de referencia (referring expression):} seleccionar las palabras o expresiones que identifican las entidades del dominio. Aunque puede parecer una tarea similar a la anterior, en este caso buscamos discriminar cada entidad del dominio del resto; empleando para ello tanta información como sea necesaria (siempre que se disponga de ella claro).
+\item \textbf{Realización lingúística:} aplicar reglas gramaticales para producir un texto que sea sintácticamente, morfológicamente y ortográficamente correcto a partir de los elementos anteriormente generados.
+\end{itemize}
+
+\section{LDD}
+
+
+\section{Aplicación educativa a partir de expresiones de referencia}
 
 \newpage
 
