@@ -1,0 +1,1 @@
+Trabajo sobre la apliación de la lógica difusa para la descripción lingüística de datos. Trabajo realizado para la asignatura Ingeniería del Conocimiento del Máster Universitario en Ingeniera Informática (UGR).
