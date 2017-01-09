@@ -78,7 +78,26 @@ Este es un campo de reciente aparición con lo que encontrar una técnica genera
 
 \subsection{Elementos en un enfoque de descripción lingüística de datos}
 
+El proceso de creación de una descripción lingüística puede definirse como la tarea de extraer la información más importante de unos datos de entrada produciendo una abstracción formada por términos lingüísticos. Esto es similar a la fase de determinación del contenido de los sitemas de NLG y constituye el nexo principal entre ambos campos.\\
 
+Pues bien los elementos principales para crear una descripción lingüística son:
+
+\begin{itemize}
+\item Los \textbf{datos de entrada}.
+\item \textbf{Variables lingüísticas} que se definen en el dominio de la variable de entrada como conjuntos difusos que etiquetan o categorizan ese dominio. Por ejemplo para la variable de entrada \textit{velocidad de conducción} podemos tener las etiquetas lingüísticas: \textit{adecuada, mala o ideal}.
+\item \textbf{Cuantificadores difusos}.
+\item \textbf{Criterio de evaluación}. El uso de variables lingüísticas y cuantificadores nos posibilitan crear una gran multitud de descripciones diferentes. Por lo tanto se hace patente la necesidad de tener un criterio para elegir la más adecuada entre ellas. Ya veremos más adelante el criterio que se empleó en la aplicación objetivo de mi TFG.
+\end{itemize}
+
+Este conjunto de elementos nos sirve para crear las descripciones lingüísticas más simples, las oraciones cuantificadas de tipo I como ``unos poco perros son marrones'' que pueden ser computadas usando un modelo de cuantificación difusa.\\
+
+La construcción de oraciones cuantificadas y, en general, de descripciones lingüísticas, es un proceso que está muy influenciado por las técnicas difusas en las que se basa. Por lo tanto, para manejar la impreción implícita en las variables lingüísticas y las particiones de cuantificación, los algoritmos usados en el campo de LDD generan todas las posibles combinaciones de oraciones para dar lugar a todas las descripciones posibles. Entonces con el criterio de selección comentado anteriormente, todas las descripciones se ordenan y se elige la mejor de ellas, por tanto este proceso podría verse como una búsqueda guiada por la meta, como un algoritmo greedy. Por tanto tantos los algoritmos heurísticos como aquellos que hacen uso de meta-heurísticas se emplean para dirigir el proceso de búsqueda, para no optar por una búsqueda por fuerza bruta; que sería muy ineficiente.\\
+
+\subsection{Técnicas y casos de uso}
+
+Lo que ocurre en el campo de la LDD es que la componente teórica es mucho más fuerte que la práctica, e incluso cuando se presenta una nueva aplicación práctica se emplea mucho lenguaje matemático para formalizar la tarea de la generación de las descripciones lingüísticas.
+
+\subsubsection{Trabajo teórico}
 \section{Aplicación educativa a partir de expresiones de referencia}
 
 \newpage
