@@ -159,11 +159,72 @@ El formalismo de representación del conocimiento se emplea para representar la 
 
 además también se emplean un conjunto de segmentos $\Omega$ sobre el que se aplican los conjuntos anteriormente definidos.\\
 
-Muy relacionado con el concepto de protoforma y componentes está como se mide la calidad de una protoforma concreta, es decir, con qué grado esa protoforma ha de formar parte del conjunto final de mensajes que conformarán la descripción retransmitida al destinatario. 
+Muy relacionado con el concepto de protoforma y componentes está como se mide la calidad de una protoforma concreta, es decir, con qué grado esa protoforma ha de formar parte del conjunto final de mensajes que conformarán la descripción retransmitida al destinatario. Se introducen las dos definiciones siguiente:\\
 
+\textbf{Definición 1.} El \textbf{espacio de instancias} es el conjunto de todas las protoformas que pueden contruirse empleando el formalismo de representación de conocimiento elegido.\\
 
+\textbf{Definición 2.} El \textbf{espacio semántico} es el conjunto potencia del espacio de instancias.
 
+Los elementos del espacio semántico representan las semanticas de toda descripción lingüística posible. El espacio de instancias consta de:
 
+\begin{itemize}
+\item Intancias del nivel de abstracción más bajo, es decir, aquellas que su medida de calidad puede obtenerse directamente a partir de los datos, como por ejemplo las instancias que se ajustan a los de tipos de protoformas presentados anteriormente.
+\item Instancias de protoformas que pertenecen a niveles de abstracción mayores, estas son obtenidas a partir de protoformas de niveles más bajos empleando inferencia en la base de conocimiento experto. La medida de calidad de estas instancias se suele obtener mediantas procesos de inferencia basados en la medida de calidad de las instancias de niveles inferiores.
+\end{itemize}
+
+Además de la protoforma $X \; es \; A$ que ya hemos mencionado y que se ha usado en multitud de aplicaciones en la literatura, diferentes tipos de reglas pueden ser usadas como protoformas, incluyendo reglas difusas como $Si \; X \; es \; A,$ $entonces \; Y \; es \; B$. También se han usado patrones secuenciales representando secuencia de instancias de tipo $X \; es \; A$ para aproximar series temporales, y para representar secuencisa de acciones realizadas por un persona a lo largo de una serie temporal de datos obtenidos con algún tipo de sensor. Y además la sentencias cuantificadas son unas de las más usadas en los sitemas de GLiDTS.
+
+\subsubsection{Técnica de extracción}
+
+La tarea de extracción toma como entrada la serie/s temporal/es, y da como salida una colección de mensajes expresando la semántica del texto ha ser generado, usando para ello un formalismoa de representación de conocimiento previamente definido. Podemos distinguir dos tipos de operaciones que pueden emplearse en el proceso de extracción:
+
+\begin{itemize}
+\item \textbf{Generar nuevas series de datos} usando procesamiento de datos, análisis numérico de los datos e inferencia. Este paso básicamente consiste en obtener una o varias series temporales a partir de las que se le pasan como entrada. Para esto se puede aplicar sobre estas series temporales las siguientes operaciones, combinadas según se considere: transformación de los datos; obtener una serie temporal a partir de varias, a partir de algún tipo de agrupación; obtener una a partir de otra mediante las diferencias en los valores de la serie original en instantes de tiempo consecutivos; la salida de una máquina de estados finitos, pasándole como entrada los valores de la serie original; usar algunas técnicas predictivas sobre series temporales.
+\item \textbf{Explorar el espacio semántico} para obtener el conjunto final de instancias que representa el mensaje final. Este proceso de búsqueda está guiado por medidas de calidad sobre las instancias individuales y/o sobre conjuntos de instancias.
+\end{itemize}
+
+La complejidad de este proceso puede venir dada por la de cualquiera de las dos operaciones anteariores. Pensemos que el espacio semántico tiene una dimensión exponencial en el número de instancias, con lo que en principio el proceso de búsqueda tendría una complejidad exponencial, no obstante, como ya hemos comentado anteriormente, pueden emplearse técnicas de optimización y heurísticas que aceleren este proceso.\\
+
+La búsqueda exhaustiva es posible siempre que el espacio de búsqueda no sea muy grande o bien la elección de las instancias sea independiente unas de otras, de modo que el proceso de búsqueda sea lineal.\\
+
+Por otro lado hay varias técnicas para podar el espacio de búsqueda realizando un proceso iterativo en la jerarquía de instancias según su nivel de abstracción, que consisten en dos pasos: en primer lugar buscar las instancias dentro de un nivel de abstracción determinado, comenzando en el nivel de abstracción más bajo, y después usar las instancias obtenidas para generar las instancias del nivel siguiente realizando algún proceso de inferencia. Estas técnicas asumen que las mejores instancias de un nivel pueden ser obtenidas infiriendo a partir de las mejores instancias del nivel anterior.
+
+\subsubsection{Proceso de expresión lingüística}
+
+Después de obtener el conjunto de instancias que representarán la semántica del mensaje final que le enviará al usuario, es necesario pasar de este conjunto a un texto que comunique el conocimiento extraído de una forma adecuada al usuario.\\
+
+La elección de las palabras o del lenguaje que emplearemos en este texto dependerán tanto de las preferencias del diseñador del sistema como del contexto lingüístico en el que se esté trabajando. Pero el sistema debe ignorar las necesidades comunicativas específicas del receptor ya que la variedad de tipos de usuarios aumenta constantemente y representar todas las necesidades particulares de los distintos usuarios puede ser demasidado complejo. Habrá que considerar algunas restricciones que representen a un usuario medio si la aplicación está dirigida a un público muy general, si por otro lado la aplicación tienen un público muy específico entonces sí podrá tenerse en cuenta las necesidades específicas de los usuarios en este proceso.\\
+
+Hay dos tipos de técnicas principales que se emplean en esta tarea, las llamadas \textbf{técnicas basadas en plantillas} y las técnicas \textbf{\textit{reales}}. Las primeras producen un texto simplemente manipulando cadenas, mientras que las técnicas del segundo grupo generan expresiones lingüísticas del conocimiento más sofisticadas teniendo en cuenta la planificación de oraciones y asuntos sintácticos.\\
+
+Las técnicas usadas por la mayoría de sistemas de GLiDTS se pueden considerar como basadas en plantillas. La salidad de estos sistemas está formada por una o más instancias obtenidas realizando operaciones simples (normalmente sustitución) en uno o más patrones predefinidos que transmiten el conocimiento de un modo adecuado. Esto se debe a que la mayoría de técnicas de representación de conocimiento usan un pequeño conjunto de protoformas predefinidas.
+
+\subsubsection{Framework de calidad}
+
+Como ya hemos mencionado en otras ocasiones, el objetivo final de un sistema de GLiDTS es dar al usuario un texto que cubra sus necesidades. Como el número de textos que se pueden generar es enorme, tener un \textit{framework} para determinar si un texto es apropiado para un usuario determinado es indispensable. Esto es lo que se llama un \textit{framework} de calidad, y la capacidad del texto para cubrir las necesidades del usuario se llama \textbf{calidad de la descripción lingüística}.\\
+
+Definir un \textit{framework} de calidad es una tarea muy complejada, especialmente para los sitemas de propóstico general debido a que:
+
+\begin{itemize}
+\item Una parte de la medida de calidad es claramente subjetiva y depende del contexto.
+\item La calidad de una descripción lingüística tiene muchos aspectos distintos, llamados \textbf{dimensiones de calidad}, con lo que para obtener una medida de calidad buena se tendrán que medir cada uno de ellos, y ver qué importancia tienen unos respecto a otros.
+\item Puede ocurrir que muchas de estas dimensiones estén fuertemente relacionadas, mientras que otras sean contradictorias entre ellas. Con lo que en general no se podrá encontrar una descripción óptima en todas las dimensiones de calidad. Así, lo sistemas de GLiDTS afrontan un problema de optimización multiobjetivo.
+\end{itemize}
+
+Las dimensiones de calidad pueden estar relacionadas con intancias individuales, conjuntos de instancias, y con diferentes aspectos de la expresión lingüística. Por lo tanto, el \textit{framework} de calidad afecta a todas las etapas del sistema de GLiDTS.\\
+
+Dicho esto, asociada a cada dimensión hemos de dar una medida, u otro mecanismo, que nos permita decir si una descripción lingüística es incomparable, indistinguible o mejor que otra con respecto a una dimensión determinada. Es decir, asociada a cada dimensión hemos de dar una relación de precedencia en el espacio de las descripciones lingüísticas. Esto no es fácil, incluso hay dimensiones cuya medida depende del usuario al que se le dé la descripción; con lo que se necesita que antes de pasar a generar la descripción el usuario introduzca sus preferencias.
+
+\subsubsection{Aplicaciones}
+
+Vamos a enumerar algunas aplicaciones de este campo que, en última instancia, pueden verse como aplicaciones de la lógica difusa:
+
+\begin{itemize}
+\item En el campo del cuidado cardíaco podemos mencionar por ejemplo el sistema BT-45 que genera resúmenes textuales a partir de datos de sensores de una unidad de cuidados intensivos de recien nacidos.
+\item En el campo de la meteorología tenemos el sistema SUMTIME-MOUSAM que genera pronósticos meteorlógicos a partir de datos números de predicciones meteorológicas.
+\item También hay sistemas centrados en el mercado bursátil.
+\item Sistemas que generar descripciones lingüísticas de un fenómeno ecológico como es el consumo doméstico de energía.
+\end{itemize}
 
 \section{Aplicación educativa a partir de expresiones de referencia}
 
