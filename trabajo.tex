@@ -98,6 +98,43 @@ La construcción de oraciones cuantificadas y, en general, de descripciones ling
 Lo que ocurre en el campo de la LDD es que la componente teórica es mucho más fuerte que la práctica, e incluso cuando se presenta una nueva aplicación práctica se emplea mucho lenguaje matemático para formalizar la tarea de la generación de las descripciones lingüísticas.
 
 \subsubsection{Trabajo teórico}
+
+Uno de los principales objetivos que se abordan en este campo es el de diseñar un \textit{framework} que sea aplicable para cualquier tipo de problema de descripción en cualquier dominio, pero aún no se ha logrado alcanzar esta meta. En esta dirección tendríamos el modelo lingüístico granular de un fenómeno (GLMP por sus siglas en inglés), propuesto por Trivino y Sugeno, es una de las aproximaciones más prometedoras en este sentido. Está basado en una jerarquía de nodos interconectados llamados mapeos de percepción (PM por sus siglas en inglés), que reciben un conjunto de percepciones computacionales (CP) como entrada. Cada PM le aplica una función a las CP (por ejemplo el mínimo, el máximo, la media o alguna regla difusa) y genera nuevas CP que pasan como entrada al siguiente nivel de PM. En esta red cada CP cubre ciertos aspectos del fenómeno con un cierto grado de granularidad.\\
+
+Otra nueva contribuciones plantean el uso de nuevos cuantificadores y nuevos métodos de evaluación para sentencias cuantificadas. Por ejemplo Díaz-Hermida explora varios aspectos teóricos como el uso de cuantificadores semi-difusos para modelar sentencias cuantificadas y describe algunos métodos genéricos para la detección de patrones.
+
+\section{Descripción lingüística de series temporales}
+
+En esta sección vamos a ver en algo de más profundidad una de las aplicaciones principales en el campo de la LDD, donde los conjuntos y sistemas difusos hacen aportaciones muy importantes, que la descripción lingüística de series de temporales.\\
+
+Este enfoque se descompone en dos tareas principales, la extracción de conocimiento y un proceso de expresiones lingüísticas. El enfoque que vamos a ver incorpora como un elementos principal un modelo descriptivo el cual tiene tres piezas fundamentales: un mecanismo de formalización del conocimiento, un lenguaje de expresión y un marco de calidad.\\
+
+Muchos profesionales en el área de las TIC tienen la tarea de dar sus usuarios conocimiento útil extraído a partir de un flujo de datos que están en constante crecimiento, en la mayoría de los casos para ayudar en problemas de decisión. En muchas ocasiones estos datos vienen en forma de series temporales, es decir, secuencias de datos procedentes de la observación de un fenómeno que están ordenados en el tiempo. Hay una gran cantidad de aplicaciones de economía, salud cardíaca y bienestar social, entre otros campos, que están relacionadas con la descripción lingüística de series temporales.\\
+
+En muchas aplicaciones o tareas el usuario recibe una gran cantidad de información que se ven a obligados a intentar interpretar, lo cual puede ser un proceso complejo sobre todo para usuarios no expertos. Por otro lado, la interacción persona-ordenador basada en lenguaje natural es un campo que está creciendo en popularidad e importancia en las últimas décadas. Por lo tanto la descripción lingüística de datos es un campo de gran utilidad en la actualidad.\\
+
+Como ya hemos comentado una descripción lingüística de datos expresa conocimiento extraído de datos usando lenguaje natural. La generación lingüística de datos consiste en dos tareas principales: un proceso de extracción de conocimiento que puede ser considera como un proceso de extracción de conocimientos en una base de datos, definido como un adquisición de conocimiento novedoso, útil y fácilmentente entendible a partir de los datos, y por otro lado un proceso de expresión lingüística que intenta mejorar la utilidad del conocimiento extraído y hacerlo más entendible usando lenguaje natural.\\
+ 
+Un sistema de descripción lingüística de series temporales (GLiDTS por sus siglas en inglés) son sistemas computacionales que simulan la respuesta que daría un experto a la pregunta de qué ve o destaca en una serie temporal. Tanto el tipo de descripción lingüística obtenida como las técnicas empleadas para su obtención son muy variadas, incluso dentro del mismo dominio. Por ejemplo, una respuesta distinta se espera para la solicitud \textit{Habláme sobre cómo pasó el paciente la noche pasada}, donde se espera una descripción completa de varias series de datos de monitorización, y \textit{Háblame sobre cambios significativos en el ritmo cardíaco del paciente}, donde el objetivo es localizar segmentos de las series temporales que concuerden con patrones lingüísticos definidos como \textit{aumentando} o \textit{decreciendo rápidamente}.\\
+
+En KDD y Aprendizaje Automático, la teoría de conjuntos difusos tiene el potencial de producir modelos que sean más comprensibles, menos complejos y más robustos, siendo especialmente útiles para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta. En NLG, la teoría de conjuntos difusos tienen una un papel muy importante en dotar de semántica a los datos recibidos como entrada, y tratar con distintos tipos de imprecisión inherente en el lenguaje natural.\\
+
+\subsection{Generación de descripciones lingüísticas de series temporales}
+
+Ya hemos dicho que el objetivos de los sistemas de GLiDTS es simular la respuesta de un experto. Ahora bien, hay otros dos agentes que son importantes para estos sistemas: el destinatario de la información y el diseñador del sistema. Por lo tanto el proceso de generación de las expresiones lingüísticas para describir la información extraída está influenciada por las características del destinatario.\\
+
+Así los datos recibidos serán descritos por una serie de mensajes que se generarán durantes el proceso de la generación de la descripción lingüística final. Para ello es necesario un formalismo de representación del conocimiento que represente la semántica de estos lenguajes. Según la potencia expresiva de este formalismo así será el espacio de mensajes que se podrán generar y en el que tendremos que realizar un proceso de búsqueda a fin de generar la descripción final.\\
+
+Como ya hemos mencionado anteriormente, la presencia de un proceso de búsqueda en un espacio que puede ser muy grande, hace necesario usar una medida de calidad tanto de los mensajes como de la descripción final obtenida, de modo que el proceso de generación se guié según algún criterio de calidad. Evidentemente el concepto de calidad tiene muchos aspectos distintos que pueden influir en la medida escogida, entre otros las características o requisitos del destinatario de la descripción final.\\
+
+
+
+
+
+
+
+
+
 \section{Aplicación educativa a partir de expresiones de referencia}
 
 \newpage
