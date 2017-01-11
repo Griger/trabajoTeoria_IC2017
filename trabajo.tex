@@ -137,9 +137,29 @@ Como veremos más adelante, la contribución de la teoría de conjuntos difusos 
 
 Uno de los aspectos fundamentales en los sitemas de GLiDTS, como ya hemos dicho antes, es elegir un mecanismo de representación del conocimientos (los mensajes) para transmitirlo al destinatario de la información. Vamos a hablar de un marco de trabajo general que es el paradigma de la Computación con Palabras y Percepciones propuesto por L.A. Zadeh, además de una teoría muy relacionada con él como es la Teoría Generalizada de la Incertidumbre.\\
 
-En este paradigma juega un papel fundamental el concepto de protoforma. Una \textbf{protoforma} se define como un protipo abstracto. Las protoformas resultan cruciales en la formalización de el ra
+En este paradigma juega un papel fundamental el concepto de protoforma. Una \textbf{protoforma} se define como un protipo abstracto. Las protoformas resultan cruciales en la formalización de el razonamiento humano y las capacidades deductivas de búsqueda, especialmente en las herramientas de descubrimientos de conocimientos basadas en lenguaje natural.\\
 
+Vamos a ver algunas protoformas concretas que se emplean mucho en data mining y es los sistema de GLiDTS:
 
+\begin{itemize}
+\item La protoforma $X \; es \; A$, donde $A$ es una etiqueta lingüística asociada a un conjunto difuso sobre el dominio de la variable $X$.
+\item La protoforma $Q \; D \; son \; A$ donde $Q$ es un cuantificador lingüístico, y $D$ y $A$ son conjuntos difusos en el mismo universo de referencia definidos por predicados difusos. Por ejemplo ``la mayoría de las veces entre las 12 y las 15 horas el precio es constante''.
+\end{itemize}
+
+\subsubsection{Formalismo}
+
+El formalismo de representación del conocimiento se emplea para representar la semántica de los mensajes a través de la semántica de las protoformas empleadas y de los componentes que las forman, que son los elementos principales de cualquier formalismo. Por ejemplo para la oración que hemos visto anteriormente, `la mayoría de las veces entre las 12 y las 15 horas el precio es constante'', su semántica viene dada por la semántica de:
+
+\begin{itemize}
+\item La protoforma $Q \; D \; son \; A$ (la fracción de objetos de $D$ que son $A$ es $Q$).
+\item El componente \textit{entre las 12 y las 15 horas} (representado por un conjunto no \textit{crisp}).
+\item El componente \textit{constante} (que viene dado por un conjunto difuso sobre el rango de valores que puede tomar el ángulo que forme una línea horizontal puesta sobre la serie temporal con un cierto segmento de la misma).
+\item El componente \textit{la mayoría de las veces} (un cuantificador relativo difuso representado por un subconjunto difuso no decreciente de [0,1]).
+\end{itemize}
+
+además también se emplean un conjunto de segmentos $\Omega$ sobre el que se aplican los conjuntos anteriormente definidos.\\
+
+Muy relacionado con el concepto de protoforma y componentes está como se mide la calidad de una protoforma concreta, es decir, con qué grado esa protoforma ha de formar parte del conjunto final de mensajes que conformarán la descripción retransmitida al destinatario. 
 
 
 
