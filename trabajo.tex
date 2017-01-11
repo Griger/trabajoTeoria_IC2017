@@ -117,7 +117,7 @@ Como ya hemos comentado una descripción lingüística de datos expresa conocimi
  
 Un sistema de descripción lingüística de series temporales (GLiDTS por sus siglas en inglés) son sistemas computacionales que simulan la respuesta que daría un experto a la pregunta de qué ve o destaca en una serie temporal. Tanto el tipo de descripción lingüística obtenida como las técnicas empleadas para su obtención son muy variadas, incluso dentro del mismo dominio. Por ejemplo, una respuesta distinta se espera para la solicitud \textit{Habláme sobre cómo pasó el paciente la noche pasada}, donde se espera una descripción completa de varias series de datos de monitorización, y \textit{Háblame sobre cambios significativos en el ritmo cardíaco del paciente}, donde el objetivo es localizar segmentos de las series temporales que concuerden con patrones lingüísticos definidos como \textit{aumentando} o \textit{decreciendo rápidamente}.\\
 
-En KDD y Aprendizaje Automático, la teoría de conjuntos difusos tiene el potencial de producir modelos que sean más comprensibles, menos complejos y más robustos, siendo especialmente útiles para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta. En NLG, la teoría de conjuntos difusos tienen una un papel muy importante en dotar de semántica a los datos recibidos como entrada, y tratar con distintos tipos de imprecisión inherente en el lenguaje natural.\\
+En KDD y Aprendizaje Automático, la teoría de conjuntos difusos tiene el potencial de producir modelos que sean más comprensibles, menos complejos y más robustos, siendo especialmente útiles para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta. En NLG, la teoría de conjuntos difusos tienen una un papel muy importante en dotar de semántica a los datos recibidos como entrada, y tratar con distintos tipos de imprecisión inherente en el lenguaje natural.
 
 \subsection{Generación de descripciones lingüísticas de series temporales}
 
@@ -127,7 +127,17 @@ Así los datos recibidos serán descritos por una serie de mensajes que se gener
 
 Como ya hemos mencionado anteriormente, la presencia de un proceso de búsqueda en un espacio que puede ser muy grande, hace necesario usar una medida de calidad tanto de los mensajes como de la descripción final obtenida, de modo que el proceso de generación se guié según algún criterio de calidad. Evidentemente el concepto de calidad tiene muchos aspectos distintos que pueden influir en la medida escogida, entre otros las características o requisitos del destinatario de la descripción final.\\
 
+Uno de los aspectos fundamentales tanto del formalismo de representación del conocimiento como del marco de calidad es el nivel de abstracción usado en las representaciones, ya que esto afecta a la percepción o a la descripción de la serie temporal que recibe el usuario. Cuanto más bajo sea el nivel de abstracción menor será la importancia de las expresiones lingüísticas y de las características del destinatario. Así, cuanto mayor sea la abstracción que sea hace sobre la serie temporal mayor será la importancia de los aspectos de usabilidad, novedad, inteligibilidad, etc.\\
 
+Hay que tener en cuenta que, dado que el objetivo es simular la respuesta de un experto a una determinada pregunta acerca de un serie temporal, para generar la salida de nuestro sistema no sólo hemos de tener en cuenta la sintaxis y la semántica, también tendremos que controlar aspectos pragmáticos. Por lo tanto hemos de asegurarnos de que el texto producido de lugar a una comunicación óptima entre el sistema y el destinatario de la información. De hecho el usuario final no sólo es importante para el formalismo de representación de conocimiento que empleemos. También será importante en el lenguaje que utilicemos para expresarnos y en el marco de calidad que establezcamos en nuestro sistema.\\
+
+Como veremos más adelante, la contribución de la teoría de conjuntos difusos y las tecnologías relacionadas con ésta es muy importante tanto en el proceso de extracción del conocimiento como en el de la genración de las expresiones para describirlo, también en la especificación del modelo descriptivo.
+
+\subsection{Representación del conocimiento}
+
+Uno de los aspectos fundamentales en los sitemas de GLiDTS, como ya hemos dicho antes, es elegir un mecanismo de representación del conocimientos (los mensajes) para transmitirlo al destinatario de la información. Vamos a hablar de un marco de trabajo general que es el paradigma de la Computación con Palabras y Percepciones propuesto por L.A. Zadeh, además de una teoría muy relacionada con él como es la Teoría Generalizada de la Incertidumbre.\\
+
+En este paradigma juega un papel fundamental el concepto de protoforma. Una \textbf{protoforma} se define como un protipo abstracto. Las protoformas resultan cruciales en la formalización de el ra
 
 
 
