@@ -103,9 +103,136 @@
 	
 	\section{Series temporales}
 	
+	\begin{frame}
+		\begin{itemize}
+			\item Mucha información en forma de \textbf{series temporales}.
+		
+			\item El proceso descripción lingüística de una serie temporal tiene dos partes:
+				\begin{itemize}
+					\item Extracción del conocimiento.
+					\item Proceso de expresión lingüística.
+				\end{itemize}
+				
+			\item La teoría de conjuntos difusos es especialmente útil para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta.
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Generación de descripciones lingüísticas de series temporales}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Influenciado por el experto, el diseñador y el destinatario.
+			\item Se genera un conjunto de mensajes que en conjunto describirán la serie temporal $\Rightarrow$ formalismo de representación del conocimiento.
+			\item Espacio de búsqueda grande $\Rightarrow$ \textit{framework} de calidad.
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Formalismo de representación del conocimiento}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Nos centramos en el paradigma de la CW.
+			\item \textbf{protoforma}: prototipo abstracto.
+			\item Destacamos dos protoformas muy empleadas en este ámbito:
+				\begin{itemize}
+					\item $X \; es \; A$
+					\item $Q \; D \; son \; A$
+				\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{itemize}
+		\item El formalismo da la semántica del mensaje a partir de la semántica de las protoformas que lo forman.
+		\item La mayoría de las veces entre las 12 y las 15 horas el precio es constante. Su semántica viene dada por la de:
+			\begin{itemize}
+				\item La protoforma $Q \; D \; son \; A$.
+				\item El componente \textit{entre las 12 y las 15 horas}.
+				\item El componente \textit{constante}.
+				\item El componente \textit{la mayoría de las veces}.
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Técnica de extracción}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Serie temporal $\longrightarrow$ Conjunto de mensajes.
+			\item En este proceso hay dos operaciones principales:
+				\begin{itemize}
+					\item Generación de nuevas series temporales.
+					\item Búsqueda en el espacio semántico.
+				\end{itemize}
+			\item En principio el espacio semántico tiene una dimensión exponencial a la dimensión al espacio de instancias $\Rightarrow$ técnicas heurísticas $\Rightarrow$ técnicas jerárquicas.
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Proceso de expresión lingüística}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Conjunto de mensajes $\longrightarrow$ Texto para el usuario.
+			\item No se pueden tener en cuenta las restricciones de cada tipo de usuario.
+			\item Hay dos técnicas principales:
+				\begin{itemize}
+					\item \textbf{Basadas en plantillas}. La mayoría de técnicas usan unas pocas protoformas predefinidas.
+					\item \textbf{\textit{Reales}}.
+				\end{itemize}
+		\end{itemize}
+	\end{frame}
+	
+	\subsection{Framework de calidad}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Definir un framework de calidad es muy complejo, sobre todo para sistemas de propósito general. Esto es así porque:
+			\begin{itemize}
+				\item Una parte de la medida de calidad es claramente subjetiva y depende del contexto.
+				\item La calidad de una descripción lingüística tiene muchos aspectos distintos, llamados \textbf{dimensiones de calidad}.
+				\item Puede ocurrir que muchas de estas dimensiones estén fuertemente relacionadas, mientras que otras sean contradictorias entre sí.
+			\end{itemize}
+		\end{itemize}		
+	\end{frame}
+	
+	\subsection{Aplicaciones}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item En el campo del cuidado cardíaco podemos mencionar por ejemplo el sistema BT-45 que genera resúmenes textuales a partir de datos de sensores de una unidad de cuidados intensivos de recien nacidos.
+			\item En el campo de la meteorología tenemos el sistema SUMTIME-MOUSAM que genera pronósticos meteorológicos a partir de datos números de predicciones meteorológicas.
+			\item También hay sistemas centrados en el mercado bursátil.
+			\item Sistemas que generan descripciones lingüísticas de un fenómeno ecológico como es el consumo doméstico de energía.
+\end{itemize}
+	\end{frame}
+	
 	\section{App}
 	
-	\subsection{Mecanismo de representación}
+	\begin{frame}
+		Señala el triángulo verde.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=40mm]{img/ejemplo1.png}			
+		\end{figure}
+	\end{frame}
+	
+	\subsection{Redes de información}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item El proceso de expresiones de referencia puede aplicarse a muchos dominios distintos.
+			\item Las rexp. se forman teniendo en cuenta la información que tenemos de los objetos de la escena.
+			\item Es necesario un mecanismo de representación del conocimiento.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{img/RIejemplo1.png}
+		\end{figure}
+	\end{frame}
 	\subsection{Problema}
 	\subsection{Medida de calidad}
 	\subsection{Algoritmo}

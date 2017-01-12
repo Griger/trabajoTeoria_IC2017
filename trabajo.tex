@@ -130,23 +130,23 @@ Ahora pasamos a ver una de las aplicaciones más importantes dentro del campo de
 
 En esta sección vamos a ver en algo de más profundidad una de las aplicaciones principales en el campo de la LDD, donde los conjuntos y sistemas difusos hacen aportaciones muy importantes, que es la descripción lingüística de series de temporales.\\
 
-Este enfoque se descompone en dos tareas principales, la extracción de conocimiento y un proceso de expresiones lingüísticas. El enfoque que vamos a ver incorpora como un elementos principal un modelo descriptivo el cual tiene tres piezas fundamentales: un mecanismo de formalización del conocimiento, un lenguaje de expresión y un marco de calidad.\\
+El enfoque que vamos a ver incorpora como un elementos principal un modelo descriptivo el cual tiene tres piezas fundamentales: un mecanismo de formalización del conocimiento, un lenguaje de expresión y un marco de calidad.\\
 
-Muchos profesionales en el área de las TIC tienen la tarea de dar sus usuarios conocimiento útil extraído a partir de un flujo de datos que están en constante crecimiento, en la mayoría de los casos para ayudar en problemas de decisión. En muchas ocasiones estos datos vienen en forma de series temporales, es decir, secuencias de datos procedentes de la observación de un fenómeno que están ordenados en el tiempo. Hay una gran cantidad de aplicaciones de economía, salud cardíaca y bienestar social, entre otros campos, que están relacionadas con la descripción lingüística de series temporales.\\
+Muchos profesionales en el área de las TIC tienen la tarea de dar a sus usuarios conocimiento útil extraído a partir de un flujo de datos que está en constante crecimiento, en la mayoría de los casos para ayudar en problemas de decisión. En muchas ocasiones estos datos vienen en forma de series temporales, es decir, secuencias de datos procedentes de la observación de un fenómeno que están ordenados en el tiempo. Hay una gran cantidad de aplicaciones de economía, salud cardíaca y bienestar social, entre otros campos, que están relacionadas con la descripción lingüística de series temporales.\\
 
 En muchas aplicaciones o tareas el usuario recibe una gran cantidad de información que se ven a obligados a intentar interpretar, lo cual puede ser un proceso complejo sobre todo para usuarios no expertos. Por otro lado, la interacción persona-ordenador basada en lenguaje natural es un campo que está creciendo en popularidad e importancia en las últimas décadas. Por lo tanto la descripción lingüística de datos es un campo de gran utilidad en la actualidad.\\
 
-Como ya hemos comentado una descripción lingüística de datos expresa conocimiento extraído de datos usando lenguaje natural. La generación lingüística de datos consiste en dos tareas principales: un proceso de extracción de conocimiento que puede ser considera como un proceso de extracción de conocimientos en una base de datos, definido como un adquisición de conocimiento novedoso, útil y fácilmentente entendible a partir de los datos, y por otro lado un proceso de expresión lingüística que intenta mejorar la utilidad del conocimiento extraído y hacerlo más entendible usando lenguaje natural.\\
+Como ya hemos comentado una descripción lingüística de datos expresa conocimiento extraído de datos usando lenguaje natural. La descripción lingüística de datos consiste en dos tareas principales: un proceso de extracción de conocimiento que puede ser considerado como un proceso de extracción de conocimientos en una base de datos, definido como un adquisición de conocimiento novedoso, útil y fácilmentente entendible a partir de los datos, y por otro lado un proceso de expresión lingüística que intenta mejorar la utilidad del conocimiento extraído y hacerlo más entendible usando lenguaje natural.\\
  
-Un sistema de descripción lingüística de series temporales (GLiDTS por sus siglas en inglés) son sistemas computacionales que simulan la respuesta que daría un experto a la pregunta de qué ve o destaca en una serie temporal. Tanto el tipo de descripción lingüística obtenida como las técnicas empleadas para su obtención son muy variadas, incluso dentro del mismo dominio. Por ejemplo, una respuesta distinta se espera para la solicitud \textit{Habláme sobre cómo pasó el paciente la noche pasada}, donde se espera una descripción completa de varias series de datos de monitorización, y \textit{Háblame sobre cambios significativos en el ritmo cardíaco del paciente}, donde el objetivo es localizar segmentos de las series temporales que concuerden con patrones lingüísticos definidos como \textit{aumentando} o \textit{decreciendo rápidamente}.\\
+Un sistema de descripción lingüística de series temporales (GLiDTS por sus siglas en inglés) es un sistema computacional que simula la respuesta que daría un experto a la pregunta de qué ve o destaca en una serie temporal. Tanto el tipo de descripción lingüística obtenida como las técnicas empleadas para su obtención son muy variadas, incluso dentro del mismo dominio. Por ejemplo, se espera una respuesta distinta para la solicitud \textit{Habláme sobre cómo pasó el paciente la noche pasada}, donde se espera una descripción completa de varias series de datos de monitorización, que para la solicitud \textit{Háblame sobre cambios significativos en el ritmo cardíaco del paciente}, donde el objetivo es localizar segmentos de las series temporales que concuerden con patrones lingüísticos definidos como \textit{aumentando} o \textit{decreciendo rápidamente}.\\
 
-En KDD y Aprendizaje Automático, la teoría de conjuntos difusos tiene el potencial de producir modelos que sean más comprensibles, menos complejos y más robustos, siendo especialmente útiles para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta. En NLG, la teoría de conjuntos difusos tienen una un papel muy importante en dotar de semántica a los datos recibidos como entrada, y tratar con distintos tipos de imprecisión inherente en el lenguaje natural.
+En KDD y Aprendizaje Automático, la teoría de conjuntos difusos tiene el potencial de producir modelos que sean más comprensibles, menos complejos y más robustos, siendo especialmente útiles para representar patrones imprecisos y modelar y procesar varios tipos de imprecisión e información incompleta. En NLG, la teoría de conjuntos difusos tienen un papel muy importante en dotar de semántica a los datos recibidos como entrada, y tratar con distintos tipos de imprecisión inherente en el lenguaje natural.
 
 \subsection{Generación de descripciones lingüísticas de series temporales}
 
 Ya hemos dicho que el objetivos de los sistemas de GLiDTS es simular la respuesta de un experto. Ahora bien, hay otros dos agentes que son importantes para estos sistemas: el destinatario de la información y el diseñador del sistema. Por lo tanto el proceso de generación de las expresiones lingüísticas para describir la información extraída está influenciada por las características del destinatario.\\
 
-Así los datos recibidos serán descritos por una serie de mensajes que se generarán durantes el proceso de la generación de la descripción lingüística final. Para ello es necesario un formalismo de representación del conocimiento que represente la semántica de estos lenguajes. Según la potencia expresiva de este formalismo así será el espacio de mensajes que se podrán generar y en el que tendremos que realizar un proceso de búsqueda a fin de generar la descripción final.\\
+Así los datos recibidos serán descritos por una serie de mensajes que se generarán durante el proceso de la generación de la descripción lingüística final. Para ello es necesario un formalismo de representación del conocimiento que represente la semántica de estos mensajes. Según la potencia expresiva de este formalismo así será el espacio de mensajes que se podrán generar y en el que tendremos que realizar un proceso de búsqueda a fin de generar la descripción final.\\
 
 Como ya hemos mencionado anteriormente, la presencia de un proceso de búsqueda en un espacio que puede ser muy grande, hace necesario usar una medida de calidad tanto de los mensajes como de la descripción final obtenida, de modo que el proceso de generación se guié según algún criterio de calidad. Evidentemente el concepto de calidad tiene muchos aspectos distintos que pueden influir en la medida escogida, entre otros las características o requisitos del destinatario de la descripción final.\\
 
@@ -154,7 +154,7 @@ Uno de los aspectos fundamentales tanto del formalismo de representación del co
 
 Hay que tener en cuenta que, dado que el objetivo es simular la respuesta de un experto a una determinada pregunta acerca de un serie temporal, para generar la salida de nuestro sistema no sólo hemos de tener en cuenta la sintaxis y la semántica, también tendremos que controlar aspectos pragmáticos. Por lo tanto hemos de asegurarnos de que el texto producido de lugar a una comunicación óptima entre el sistema y el destinatario de la información. De hecho el usuario final no sólo es importante para el formalismo de representación de conocimiento que empleemos. También será importante en el lenguaje que utilicemos para expresarnos y en el marco de calidad que establezcamos en nuestro sistema.\\
 
-Como veremos más adelante, la contribución de la teoría de conjuntos difusos y las tecnologías relacionadas con ésta es muy importante tanto en el proceso de extracción del conocimiento como en el de la genración de las expresiones para describirlo, también en la especificación del modelo descriptivo.
+La contribución de la teoría de conjuntos difusos y las tecnologías relacionadas con ésta es muy importante tanto en el proceso de extracción del conocimiento como en el de la generación de las expresiones para describirlo, también en la especificación del modelo descriptivo.
 
 \subsection{Representación del conocimiento}
 
@@ -182,7 +182,7 @@ El formalismo de representación del conocimiento se emplea para representar la 
 
 además también se emplean un conjunto de segmentos $\Omega$ sobre el que se aplican los conjuntos anteriormente definidos.\\
 
-Muy relacionado con el concepto de protoforma y componentes está como se mide la calidad de una protoforma concreta, es decir, con qué grado esa protoforma ha de formar parte del conjunto final de mensajes que conformarán la descripción retransmitida al destinatario. Se introducen las dos definiciones siguiente:\\
+Muy relacionado con el concepto de protoforma y componentes está cómo se mide la calidad de una protoforma concreta, es decir, con qué grado esa protoforma ha de formar parte del conjunto final de mensajes que conformarán la descripción retransmitida al destinatario. Se introducen las dos definiciones siguiente:\\
 
 \textbf{Definición 1.} El \textbf{espacio de instancias} es el conjunto de todas las protoformas que pueden contruirse empleando el formalismo de representación de conocimiento elegido.\\
 
@@ -199,7 +199,7 @@ Además de la protoforma $X \; es \; A$ que ya hemos mencionado y que se ha usad
 
 \subsubsection{Técnica de extracción}
 
-La tarea de extracción toma como entrada la serie/s temporal/es, y da como salida una colección de mensajes expresando la semántica del texto ha ser generado, usando para ello un formalismoa de representación de conocimiento previamente definido. Podemos distinguir dos tipos de operaciones que pueden emplearse en el proceso de extracción:
+La tarea de extracción toma como entrada la serie/s temporal/es, y da como salida una colección de mensajes expresando la semántica del texto a ser generado, usando para ello un formalismo de representación de conocimiento previamente definido. Podemos distinguir dos tipos de operaciones que pueden emplearse en el proceso de extracción:
 
 \begin{itemize}
 \item \textbf{Generar nuevas series de datos} usando procesamiento de datos, análisis numérico de los datos e inferencia. Este paso básicamente consiste en obtener una o varias series temporales a partir de las que se le pasan como entrada. Para esto se puede aplicar sobre estas series temporales las siguientes operaciones, combinadas según se considere: transformación de los datos; obtener una serie temporal a partir de varias, a partir de algún tipo de agrupación; obtener una a partir de otra mediante las diferencias en los valores de la serie original en instantes de tiempo consecutivos; la salida de una máquina de estados finitos, pasándole como entrada los valores de la serie original; usar algunas técnicas predictivas sobre series temporales.
@@ -234,19 +234,20 @@ Definir un \textit{framework} de calidad es una tarea muy compleja, especialment
 \item Puede ocurrir que muchas de estas dimensiones estén fuertemente relacionadas, mientras que otras sean contradictorias entre ellas. Con lo que en general no se podrá encontrar una descripción óptima en todas las dimensiones de calidad. Así, lo sistemas de GLiDTS afrontan un problema de optimización multiobjetivo.
 \end{itemize}
 
-Las dimensiones de calidad pueden estar relacionadas con intancias individuales, conjuntos de instancias, y con diferentes aspectos de la expresión lingüística. Por lo tanto, el \textit{framework} de calidad afecta a todas las etapas del sistema de GLiDTS.\\
+Las dimensiones de calidad pueden estar relacionadas con instancias individuales, conjuntos de instancias, y con diferentes aspectos de la expresión lingüística. Por lo tanto, el \textit{framework} de calidad afecta a todas las etapas del sistema de GLiDTS.\\
 
-Dicho esto, asociada a cada dimensión hemos de dar una medida, u otro mecanismo, que nos permita decir si una descripción lingüística es incomparable, indistinguible o mejor que otra con respecto a una dimensión determinada. Es decir, asociada a cada dimensión hemos de dar una relación de precedencia en el espacio de las descripciones lingüísticas. Esto no es fácil, incluso hay dimensiones cuya medida depende del usuario al que se le dé la descripción; con lo que se necesita que antes de pasar a generar la descripción el usuario introduzca sus preferencias.
+Dicho esto, asociada a cada dimensión hemos de dar una medida, u otro mecanismo, que nos permita decir si una descripción lingüística es incomparable, indistinguible o mejor que otra con respecto a una dimensión determinada. Es decir, asociada a cada dimensión hemos de dar una relación de precedencia en el espacio de las descripciones lingüísticas. Esto no es fácil, incluso hay dimensiones cuya medida depende del usuario al que se le dé la descripción; con lo que se necesita que antes de pasar a generar la descripción el usuario introduzca sus preferencias.\\
 
+Pasemos ya finalmente a ver algunas aplicaciones de este campo.
 \subsubsection{Aplicaciones}
 
 Vamos a enumerar algunas aplicaciones de este campo que, en última instancia, pueden verse como aplicaciones de la lógica difusa:
 
 \begin{itemize}
 \item En el campo del cuidado cardíaco podemos mencionar por ejemplo el sistema BT-45 que genera resúmenes textuales a partir de datos de sensores de una unidad de cuidados intensivos de recien nacidos.
-\item En el campo de la meteorología tenemos el sistema SUMTIME-MOUSAM que genera pronósticos meteorlógicos a partir de datos números de predicciones meteorológicas.
+\item En el campo de la meteorología tenemos el sistema SUMTIME-MOUSAM que genera pronósticos meteorológicos a partir de datos números de predicciones meteorológicas.
 \item También hay sistemas centrados en el mercado bursátil.
-\item Sistemas que generar descripciones lingüísticas de un fenómeno ecológico como es el consumo doméstico de energía.
+\item Sistemas que generan descripciones lingüísticas de un fenómeno ecológico como es el consumo doméstico de energía.
 \end{itemize}
 
 \section{Aplicación educativa a partir de expresiones de referencia}
