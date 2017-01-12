@@ -20,6 +20,9 @@
 %Custom itemize bullet
 \def\labelitemi{$\blacktriangleright$}
 
+\newtheorem{definicion}{Definición}
+\newtheorem{proposicion}{Proposición}
+
 \begin{document}
 \pagenumbering{gobble} %turn off page enumeration
 \maketitle
@@ -135,7 +138,7 @@ Como veremos más adelante, la contribución de la teoría de conjuntos difusos 
 
 \subsection{Representación del conocimiento}
 
-Uno de los aspectos fundamentales en los sitemas de GLiDTS, como ya hemos dicho antes, es elegir un mecanismo de representación del conocimientos (los mensajes) para transmitirlo al destinatario de la información. Vamos a hablar de un marco de trabajo general que es el paradigma de la Computación con Palabras y Percepciones propuesto por L.A. Zadeh, además de una teoría muy relacionada con él como es la Teoría Generalizada de la Incertidumbre.\\
+Uno de los aspectos fundamentales en los sistemas de GLiDTS, como ya hemos dicho antes, es elegir un mecanismo de representación del conocimientos (los mensajes) para transmitirlo al destinatario de la información. Vamos a hablar de un marco de trabajo general que es el paradigma de la Computación con Palabras y Percepciones propuesto por L.A. Zadeh, además de una teoría muy relacionada con él como es la Teoría Generalizada de la Incertidumbre.\\
 
 En este paradigma juega un papel fundamental el concepto de protoforma. Una \textbf{protoforma} se define como un protipo abstracto. Las protoformas resultan cruciales en la formalización de el razonamiento humano y las capacidades deductivas de búsqueda, especialmente en las herramientas de descubrimientos de conocimientos basadas en lenguaje natural.\\
 
@@ -165,14 +168,14 @@ Muy relacionado con el concepto de protoforma y componentes está como se mide l
 
 \textbf{Definición 2.} El \textbf{espacio semántico} es el conjunto potencia del espacio de instancias.
 
-Los elementos del espacio semántico representan las semanticas de toda descripción lingüística posible. El espacio de instancias consta de:
+Los elementos del espacio semántico representan las semánticas de toda descripción lingüística posible. El espacio de instancias consta de:
 
 \begin{itemize}
-\item Intancias del nivel de abstracción más bajo, es decir, aquellas que su medida de calidad puede obtenerse directamente a partir de los datos, como por ejemplo las instancias que se ajustan a los de tipos de protoformas presentados anteriormente.
-\item Instancias de protoformas que pertenecen a niveles de abstracción mayores, estas son obtenidas a partir de protoformas de niveles más bajos empleando inferencia en la base de conocimiento experto. La medida de calidad de estas instancias se suele obtener mediantas procesos de inferencia basados en la medida de calidad de las instancias de niveles inferiores.
+\item Instancias del nivel de abstracción más bajo, es decir, aquellas que su medida de calidad puede obtenerse directamente a partir de los datos, como por ejemplo las instancias que se ajustan a los de tipos de protoformas presentados anteriormente.
+\item Instancias de protoformas que pertenecen a niveles de abstracción mayores, estas son obtenidas a partir de protoformas de niveles más bajos empleando inferencia en la base de conocimiento experto. La medida de calidad de estas instancias se suele obtener mediante procesos de inferencia basados en la medida de calidad de las instancias de niveles inferiores.
 \end{itemize}
 
-Además de la protoforma $X \; es \; A$ que ya hemos mencionado y que se ha usado en multitud de aplicaciones en la literatura, diferentes tipos de reglas pueden ser usadas como protoformas, incluyendo reglas difusas como $Si \; X \; es \; A,$ $entonces \; Y \; es \; B$. También se han usado patrones secuenciales representando secuencia de instancias de tipo $X \; es \; A$ para aproximar series temporales, y para representar secuencisa de acciones realizadas por un persona a lo largo de una serie temporal de datos obtenidos con algún tipo de sensor. Y además la sentencias cuantificadas son unas de las más usadas en los sitemas de GLiDTS.
+Además de la protoforma $X \; es \; A$ que ya hemos mencionado y que se ha usado en multitud de aplicaciones en la literatura, diferentes tipos de reglas pueden ser usadas como protoformas, incluyendo reglas difusas como $Si \; X \; es \; A,$ $entonces \; Y \; es \; B$. También se han usado patrones secuenciales representando secuencia de instancias de tipo $X \; es \; A$ para aproximar series temporales, y para representar secuencias de acciones realizadas por un persona a lo largo de una serie temporal de datos obtenidos con algún tipo de sensor. Y además la sentencias cuantificadas son unas de las más usadas en los sistemas de GLiDTS.
 
 \subsubsection{Técnica de extracción}
 
@@ -183,7 +186,7 @@ La tarea de extracción toma como entrada la serie/s temporal/es, y da como sali
 \item \textbf{Explorar el espacio semántico} para obtener el conjunto final de instancias que representa el mensaje final. Este proceso de búsqueda está guiado por medidas de calidad sobre las instancias individuales y/o sobre conjuntos de instancias.
 \end{itemize}
 
-La complejidad de este proceso puede venir dada por la de cualquiera de las dos operaciones anteariores. Pensemos que el espacio semántico tiene una dimensión exponencial en el número de instancias, con lo que en principio el proceso de búsqueda tendría una complejidad exponencial, no obstante, como ya hemos comentado anteriormente, pueden emplearse técnicas de optimización y heurísticas que aceleren este proceso.\\
+La complejidad de este proceso puede venir dada por la de cualquiera de las dos operaciones anteriores. Pensemos que el espacio semántico tiene una dimensión exponencial en el número de instancias, con lo que en principio el proceso de búsqueda tendría una complejidad exponencial, no obstante, como ya hemos comentado anteriormente, pueden emplearse técnicas de optimización y heurísticas que aceleren este proceso.\\
 
 La búsqueda exhaustiva es posible siempre que el espacio de búsqueda no sea muy grande o bien la elección de las instancias sea independiente unas de otras, de modo que el proceso de búsqueda sea lineal.\\
 
@@ -193,17 +196,17 @@ Por otro lado hay varias técnicas para podar el espacio de búsqueda realizando
 
 Después de obtener el conjunto de instancias que representarán la semántica del mensaje final que le enviará al usuario, es necesario pasar de este conjunto a un texto que comunique el conocimiento extraído de una forma adecuada al usuario.\\
 
-La elección de las palabras o del lenguaje que emplearemos en este texto dependerán tanto de las preferencias del diseñador del sistema como del contexto lingüístico en el que se esté trabajando. Pero el sistema debe ignorar las necesidades comunicativas específicas del receptor ya que la variedad de tipos de usuarios aumenta constantemente y representar todas las necesidades particulares de los distintos usuarios puede ser demasidado complejo. Habrá que considerar algunas restricciones que representen a un usuario medio si la aplicación está dirigida a un público muy general, si por otro lado la aplicación tienen un público muy específico entonces sí podrá tenerse en cuenta las necesidades específicas de los usuarios en este proceso.\\
+La elección de las palabras o del lenguaje que emplearemos en este texto dependerán tanto de las preferencias del diseñador del sistema como del contexto lingüístico en el que se esté trabajando. Pero el sistema debe ignorar las necesidades comunicativas específicas del receptor ya que la variedad de tipos de usuarios aumenta constantemente y representar todas las necesidades particulares de los distintos usuarios puede ser demasiado complejo. Habrá que considerar algunas restricciones que representen a un usuario medio si la aplicación está dirigida a un público muy general, si por otro lado la aplicación tienen un público muy específico entonces sí podrá tenerse en cuenta las necesidades específicas de los usuarios en este proceso.\\
 
 Hay dos tipos de técnicas principales que se emplean en esta tarea, las llamadas \textbf{técnicas basadas en plantillas} y las técnicas \textbf{\textit{reales}}. Las primeras producen un texto simplemente manipulando cadenas, mientras que las técnicas del segundo grupo generan expresiones lingüísticas del conocimiento más sofisticadas teniendo en cuenta la planificación de oraciones y asuntos sintácticos.\\
 
-Las técnicas usadas por la mayoría de sistemas de GLiDTS se pueden considerar como basadas en plantillas. La salidad de estos sistemas está formada por una o más instancias obtenidas realizando operaciones simples (normalmente sustitución) en uno o más patrones predefinidos que transmiten el conocimiento de un modo adecuado. Esto se debe a que la mayoría de técnicas de representación de conocimiento usan un pequeño conjunto de protoformas predefinidas.
+Las técnicas usadas por la mayoría de sistemas de GLiDTS se pueden considerar como basadas en plantillas. La salida de estos sistemas está formada por una o más instancias obtenidas realizando operaciones simples (normalmente sustitución) en uno o más patrones predefinidos que transmiten el conocimiento de un modo adecuado. Esto se debe a que la mayoría de técnicas de representación de conocimiento usan un pequeño conjunto de protoformas predefinidas.
 
 \subsubsection{Framework de calidad}
 
 Como ya hemos mencionado en otras ocasiones, el objetivo final de un sistema de GLiDTS es dar al usuario un texto que cubra sus necesidades. Como el número de textos que se pueden generar es enorme, tener un \textit{framework} para determinar si un texto es apropiado para un usuario determinado es indispensable. Esto es lo que se llama un \textit{framework} de calidad, y la capacidad del texto para cubrir las necesidades del usuario se llama \textbf{calidad de la descripción lingüística}.\\
 
-Definir un \textit{framework} de calidad es una tarea muy complejada, especialmente para los sitemas de propóstico general debido a que:
+Definir un \textit{framework} de calidad es una tarea muy compleja, especialmente para los sistemas de propósito general debido a que:
 
 \begin{itemize}
 \item Una parte de la medida de calidad es claramente subjetiva y depende del contexto.
@@ -228,22 +231,229 @@ Vamos a enumerar algunas aplicaciones de este campo que, en última instancia, p
 
 \section{Aplicación educativa a partir de expresiones de referencia}
 
-A continuación vamos a ver con más profundidad una aplicación de la lógica difusa que surgió como objetivo final de mi Trabajo Fin de Grado. En este trabajo se desarrolló una aplicación Android para la ensañanza de conceptos básicos como la forma y el color a niños en edad preescolar. Al manejar conceptos como el color o el tamaño el uso de la lógica difusa para modelarlos es necesario. Entonces veremos los aspectos teóricos que hay bajo esta aplicación y después mostraremos algunas capturas del funcionamiento de la misma. Veremos algunas relaciones con lo que hemos contado en las secciones anteiores.
+A continuación vamos a ver con más profundidad una aplicación de la lógica difusa que surgió como objetivo final de mi Trabajo Fin de Grado. El objetivo de este trabajo fue desarrollar una aplicación para ayudar a asimilar conceptos visuales propios de la enseñanza inicial de un niño: colores, figuras, tamaño y posición relativa.\\
+
+Así la aplicación muestra una escena compuesta por diversas formas de distintos colores y tamaños dando una descripción del objeto que se quiere que se toque en la pantalla. Las descripciones siempre las genera la aplicación de forma automática y tienen la forma de sintagmas nominales en lo que se conoce como expresiones de referencia (referring expressions), frases cuyo único propósito comunicativo es describir un objeto en el cual nos hemos centrado. Además buscamos que dicha expresión de referencia sea una descripción que permita distinguir a dicho objeto de todos los demás, esto es, que dicha descripción no pueda ser aplicada a otro objeto de la escena.\\
+
+Veamos un ejemplo de lo que se muestra al usuario:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40mm]{img/ejemplo1.png}
+\caption{Señala el triángulo verde} \label{Escena de ejemplo}
+\end{figure}
+
+En nuestro caso nos centramos en una escena compuesta por figuras, pero obviamente la búsqueda de expresiones de referencia se puede emplear en diversos campos (ya veremos algún ejemplo en la memoria). Por tanto, como parte del trabajo, se desarrolló un mecanismo para la búsqueda de estas expresiones de referencia para un objeto dentro de un conjunto, sin importar la naturaleza del mismo.\\
+
+Las expresiones de referencia se construyen a partir de la información de la que dispongamos del objeto a describir (teniendo en cuenta la que tenemos del resto de objetos) con lo cual el primer problema que abordamos es definir un mecanismo de representación del conocimiento con el cual poder manejar toda la información que podemos tener. Para ello definimos un concepto matemático que llamamos red de información. Aquí tenemos como se representa la información de la escena anterior por medio de una red de información:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{img/RIejemplo1.png}
+\caption{Red de información de ejemplo} \label{RI ejemplo}
+\end{figure}
+
+Al igual que sucedía en el caso de la descripción de series temporales, para un mismo objeto podemos tener varias descripciones válidas, con lo que se definió una medida de bondad para elegir la descripción que se le daba al usuario. Además, como estamos abordando un problema muy importante dentro del campo de la generación de lenguaje natural, como es el de la búsqueda de expresiones de referencia, hemos de tratar con la subjetividad inherente al lenguaje natural, con lo que empleamos la lógica difusa como mecanismo para manejar y representar esta incertidumbre.
 
 \subsection{Mecanismo de representación de conocimientos. Redes de información.}
 
+Una vez tenemos el dominio en el que vamos a trabajar, que si nos centramos en nuestra aplicación será una escena compuesta por figuras, tenemos que extraer la información que nos interesa de ella y modelarla para poder procesarla computacionalmente. Una estructura muy usada para estos propósitos es la estructura de grafo, al cual hay que incorpora la información de interés. Podríamos pensar que con usar un grafo etiquetado sería suficiente, puesto que simplemente queremos hablar de objetos y sus propiedades. No obstante, esta información no consistirá sólo en nombres de propiedades sino que además vendrá acompañada, en muchos problemas reales y en particular en nuestra aplicación, de unos grados de cumplimiento para estas propiedades. Así lo que hicimos fue definir una estructura matemática para modelar todo este conocimiento.\\
+
+Como vamos a ver nuestro modelo de representación de conocimiento tendrá una estructura muy parecida a la de los grafos usuales, sólo que se agregan dos nuevos conjuntos; el conjunto de aplicaciones sobre los nodos y el de aplicaciones sobre los arcos. El grafo es un grafo dirigido, de modo que podamos almacenar la información de relaciones entre los objetos tanto simétricas como antisimétricas. El hecho de elegir los grafos nos permite aprovechar todo el potencial de los grafos y técnicas algorítmicas sobre ellos para trabajar con nuestro modelo:\\
+
+\begin{definicion}
+\label{defired}
+Una \textbf{\textit{red de información}} (\textit{r.i.}) será una tripleta RI = (G,A,S) donde:\\
+
+- G es un grafo dirigido, al que llamaremos \textbf{\textit{grafo de la red de información RI}} o simplemente \textbf{\textit{grafo}} cuando esté claro por el contexto. Siendo $V_{G}$ los vértices del grafo, $E_{G}$ sus arcos e $I_{G}$ la función de incidencia del grafo (que asocia a cada arista un par ordenado de vértices); y nos referiremos a ellos como \textbf{los objetos, conexiones y función de incidencia de la red de información RI}.\\
+
+- A es el conjunto de propiedades que pueden tener los objetos de RI, y lo llameremos \textbf{\textit{propiedades de RI para los objetos}} o simplemente \textbf{\textit{propiedades para los objetos}} cuando esté claro por el contexto.\\
+Cada $f \in A$ será una aplicación $f:V_{f} \longrightarrow B_{f}$ donde a $V_{f} \subseteq V_{G}$ (con $V_f \neq \emptyset$) lo notaremos por dom(f) (al tratarse del dominio de f como aplicación matemática) y  $B_{f}$ será el \textit{\textbf{rango de f}}  y será un conjunto cualquiera.\\
+
+- S es el conjunto de propiedades que pueden tener las conexiones de RI, y lo llameremos \textbf{\textit{propiedades de RI para las conexiones}} o simplemente \textbf{\textit{propiedades para las conexiones}} cuando esté claro por el contexto.\\
+Cada $r \in S$ será una aplicación $f:E_{r} \longrightarrow B_{r}$ donde a $E_{r} \subseteq E_{G}$ (con $E_r \neq \emptyset$ lo notaremos por dom(r) (al tratarse del dominio de r como aplicación matemática) y  $B_{r}$ será el \textit{\textbf{rango de r}}  y será un conjunto cualquiera.\\
+
+En general a un elemento de $A \cup S$ lo llamaremos \textbf{\textit{propiedad de RI}} o simplemente \textbf{\textit{propiedad}} cuando esté claro por el contexto.
+\end{definicion}
+
+Nosotros, como ya hemos dicho, trabajamos con propiedades difusas principalmente, con lo cuál hemos de añadir un grado de verdad a cada una de las propiedades. Puede surgirnos la duda de, si hemos dejado total libertad al conjunto de valores de una propiedad, por qué no hacer simplemente que dicho conjunto sea un producto cartesiano $A\mathrm{x}I$, siendo $A$ el conjunto de valores que puede presentar una propiedad e $I$ el conjunto de grados de intensidad que puede tener un valor de dicha propiedad. Esto se debe a que hemos de exigirle algo más al $I$, y es que queríamos poder comparar grados de intensidad, entonces para ello exigimos que sobre $I$ haya definida una relación de orden. Lo que nos lleva a la siguiente definición:
+
+\begin{definicion}
+\label{defiescala}
+Dado un conjunto cualquiera I y una relación de orden R sobre dicho conjunto llamaremos \textit{\textbf{escala de intensidad}} al par (I,R). Nos podemos referir a I como el conjunto base de la escela de intensidad.
+\end{definicion}
+
+Para dotar a una propiedad de intensidad lo único que hemos de hacer es tomar una escala de intensidad y que el dominio de dicha propiedad sea $A\mathrm{x}I$, donde $A$ es el conjunto de valores que puede tomar la propiedad e $I$ el conjunto base de la escala de intensidad considerada.\\
+
+Es claro que, para el caso de las propiedades difusas usuales, este grado de intensidad será un valor en el intervalo $[0,1]$ y que por tanto esta definición de escala de intensidad parece innecesaria, pues en los números reales ya hay definidas varias relaciones de orden. Pero dar esta definición nos permite expresar la intensidad con otros elementos como pueden ser los modificadores \textit{extremadamente, muy, medio,} y  \textit{poco}.\\
+
+\subsubsection{$\alpha$-cortes de una red de información}
+
+En \cite{artDanielRL} podemos ver cómo pasar de un concepto difuso a una familia de conjuntos no-difusos, lo que se conoce como representación por niveles (RL), la cual tiene la ventaja de tener las mismas propiedades que las álgebras boolenas usuales. En concreto, para un conjunto difuso una RL sería el conjunto de sus $\alpha$-cortes.\\
+
+Anteriormente hemos introducido el concepto de escala de intensidad, y esto es lo que nos permitió definir los $\alpha$-cortes de una r.i., lo que hacemos es elegir un umbral que, junto con las relaciones de orden de las distintas escalas asociadas a las propiedades de la r.i., nos da el corte.\\
+
+Pasemos ya a ver cómo definimos un $\alpha$-corte para un r.i., lo primero que tenemos que observar es que aquellos objetos o asociaciones que no se vean afectados por dicha propiedad no se ven afectados por el corte. Por otro lado podemos establecer un corte que implique distintas propiedades.
+
+\begin{definicion}
+\label{defialfacorteprop}
+Sea RI = (G, A, S) una red de información, consideramos una propiedad de la r.i. con una cierta escala de intensidad (X, R) asociada.\\
+
+Sea $f \in A \cup S$  la propiedad considerada, y notemos por inten(v) la intensidad con la que v $\in$ dom(f), presenta su valor para la propiedad f. Entonces definimos el \textit{\textbf{$\alpha$-corte de la propiedad f de RI}} con $\alpha \in$ X como una nueva r.i. $RI_{f,\alpha} = (G_{f,\alpha}, A, R)$ donde $G_{f,\alpha}$ es un subgrafo de G definido como sigue:\\
+
+Dado $v \in (V_{G} \cup E_{G})$, $v \in (V_{G_{f,\alpha}} \cup E_{G_{f,\alpha}})$ sii [$v \notin dom(f) \bigvee (v \in dom(f) \; \wedge \; (inten(v) \, R \, \alpha))$].
+\end{definicion}
+
+Es claro que si todos los objetos o conexiones que presenten una cierta propiedad desaparecen en el $\alpha$-corte, entonces podemos eliminar dicha propiedad de la r.i. resultante.
+
+\begin{definicion}
+\label{defisubredcondicionada}
+Sea RI = (G, A, S) una red de información, consideramos un subconjunto de propiedades $P =\{f_{1},...,f_{n}\} \subseteq (A \cup S)$ cada una de ellas con una escala de intensidad ($X_{i},R_{i}$) asociada con i variando de 1 hasta n. Y sea $\alpha = (\alpha_{1},...,\alpha_{n})$ con $\alpha_{i} \in X_{i}$\\
+
+Entonces definimos la \textit{\textbf{subred de RI condiconada a $P$ y $\alpha$}} como una nueva r.i. $RI_{P,\alpha} = (G_{P,\alpha}, A, R)$ donde $G_{P,\alpha}$ es un subgrafo de G definido como sigue:\\
+
+Dado $v \in (V_{G} \cup E_{G})$, $v \in (V_{G_{P,\alpha}} \cup E_{G_{P,\alpha}})$ sii\\
+
+[$(v \notin \bigcup\limits_{1}^{n}dom(f_{i})) \; \bigvee \; ((para \; cada \; f_{i} \in P \; t.q. \; v \in dom(f_{i})) \Rightarrow (inten(v) \, R_{i} \, \alpha_{i}))]$.
+\end{definicion}
+
+Como caso particular de la definición anterior, cuando podamos considerar un umbral que esté presente para todos los conjuntos base de las escalas de intensidad de todas las propiedades de la r.i., podemos dar la siguiente definición:
+
+\begin{definicion}
+Sea $RI = (G,A,S)$ una red de información, consideramos el conjunto de todas las propiedades de la r.i., $P = A \bigcup S = \lbrace p_1, ..., p_n \rbrace$ cada una de ellas con una escala de intensidad $(X_i, R_i)$, y sea $\alpha \in \overset{n}{\underset{i = 1}{\bigcap}} X_i$.\\
+
+Entonces definimos el \textbf{$\alpha$-corte de RI} como la red de información $RI_{\alpha} = (G_\alpha, A, S)$ donde $G_\alpha$ es un subgrafo de $G$ definido como sigue:\\
+
+Dado $v \in V_G \bigcup E_G$, $v \in V_{G_\alpha} \bigcup E_{G_\alpha}$ sii $\forall p_i \in P \; t.q. \; v \in dom(p_i), p_i(v) R_i \alpha$.
+\end{definicion}
+
+Una vez que ya tenemos modelada la información de la que disponemos en la escena el siguiente paso es buscar las expresiones de referencia para el objeto que queremos describir, esto lo veremos en la siguiente sección.
+
 \subsection{Búsqueda de expresiones de referencia en redes de información.}
+
+Vamos a formalizar el problema que se abordó en este trabajo para así comprender mejor el desarrollo teórico y algorítmico que sigue.\\
+
+Partimos de una red de información compuesta por una serie de objetos $\lbrace x_1, ..., x_n\rbrace$. Entonces lo que se busca es, para cada (o uno en concreto en el caso de nuestra aplicación) objeto de esta r.i., encontrar una combinación de propiedades (o varias) $re = \lbrace p_1, ... p_n \rbrace$ de modo que el éxito referencial de esta(s) expresión(es) de referencia sea lo más grande posible.\\
+
+Estas propiedades serán difusas con lo cual lo que hacemos es trasladar el problema a cada uno de los $\alpha$-cortes de la r.i. que tenga sentido definir (aquellos que sean distintos entre sí, que vendrán dados por el conjunto de grados distintos que presenten las propiedades de la r.i.). Estos $\alpha$-cortes se definen con un solo umbral para todas las propiedades de la r.i. original. Una vez estemos en cada nivel buscaremos expresiones de referencia $re_{ci} = \lbrace p_{ci_1}, ..., p_{ci_{m_i}} \rbrace$ que tengan éxito referencial 1 para ese objeto, en el sentido no difuso.\\
+
+Las propiedades que se consideran en cada una de los $\alpha$-cortes de la r.i. definidos, son o bien propiedades del objeto $x_i$ a referenciar, es decir, $p_i \; t.q. \; x_i \in dom(p_i)$ (aquí hablamos sólo de pertenencia al dominio o soporte de la propiedad ya que no estamos en el caso difuso), o bien combinaciones de relaciones del corte para arcos del grafo de la r.i. con origen en $x_i$ y destino en algún $x_j$ con una rexp. de $x_j$ que no necesariamente ha de tener éxito referencial (en el sentido no difuso) para dicho objeto.\\
+
+Finalmente, para cada una de las rexp. encontradas en los distintos niveles, lo que hacemos es medir el éxito referencia de dicha expresión de referencia con respecto a la r.i. original con información difusa, empleando la medida de éxito referencial presentada en la definición \ref{def: medida}.\\
+
+Hemos hablado del éxito referencial de las expresiones de referencia. Pues bien, el \textbf{éxito referencial} puede definirse como la medida en la cual el conjunto de objetos (dentro de un determinado universo de discurso), a los que se les puede aplicar la expresión de referencia está compuesto únicamente por el objeto al que realmente se quiere identificar. Y teniendo en cuenta esto propusimos las siguientes propieades para una medida de éxito referencial $rs$:
+
+\begin{enumerate}
+\item $rs(re, x) = 1 \; sii \; X_{re} = \lbrace x \rbrace$.
+\item Si $X_{re}(x) = 0$ entonces $rs(re, x) = 0$.
+\item Si $X_{re}(y) \leq X_{re'}(y), \forall y \in X\setminus\lbrace x\rbrace$ y $X_{re}(x) \geq X_{re'}(x)$ entonces $rs(re, x) \geq rs(re', x)$.
+\end{enumerate}
 
 \subsubsection{Medidad de calidad.}
 
+Ya hemos visto qué entendemos por éxito referencial. A continuación pasamos a introducir un modo de medir el éxito referencial cuando estamos trabajando con propiedades difusas. Esta medida, que introducimos en \cite{artReferentialSuccessCuts}, es la que empleamos en nuestra aplicación como medida de bondad de las expresiones de referencia que encontremos para un determinado objeto, escogiendo entre ellas la mejor.\\
+
+La idea de esta medida es dar una valor en el intervalo $[0,1]$ a una expresión de referencia, $re$, con respecto a un objeto $x$ a ser referenciado. Para ello, dado que la rexp. estará formada por una colección de propiedades difusas, lo que hacemos es dividir el conjunto difuso de los objetos que se corresponden con la rexp. en sus respectivos $\alpha$-cortes y ver en cada uno de ellos si la rexp. tiene éxito referencial para el objeto en el sentido no difuso. Agregando después el valor en cada uno de los niveles.\\
+
+En el sentido no difuso el éxito referencial de una rexp. era la medida en que ésta cumplía que $\underset{p_i \in re}{\bigcap}[[p_i]] = \lbrace x \rbrace$, siendo $x$ el objeto a referenciar y $[[p_i]] \subseteq X$ es el conjunto de objeto que tienen la propiedad $p_i$. Ahora bien, para las propiedades difusas tenemos que trabajar algo más para poder realizar este cálculo, debido a la gradualidad de las mismas.\\
+
+Para medir la veracidad o \textit{accuracy}, cómo se adecua esa descripción a un objeto determinado, de una determinada expresión de refencia compuesta por propiedades difusas, entonces si notamos por $p_i(x)$ el grado en que la propiedad $p_i$ se da para el objeto $x$, la veracidad de la expresión de referencia $re$ para ese objeto puede calcularse como sigue:
+
+\begin{center}
+$acc_{re}(x) = \underset{i = 1}{\overset{n}{\bigotimes}} p_i(x)$
+\end{center}
+
+siendo $\bigotimes$ una t-norma. En nuestro caso la t-norma que empleamos es la del mínimo, así que lo que se muestra a continuación es para esta t-norma en concreto.\\
+
+Antes de pasar a dar la definición nuestra medida de éxito referencial necesitaremos hacer algunas definiciones previas que mostramos a continuación:
+
+\begin{definicion}
+Dada una rexp., $re = \lbrace p_1, ..., p_n\rbrace$, compuesta por propiedades difusas y un $\alpha \in [0,1]$. Para cada propiedad $p_i \in re$, el conjunto de objetos que presentan esa propiedad con al menos grado $\alpha$, que lo notamos por $[[p_i]]_\alpha$, es el $\alpha$-corte de $X_{p_i}$.
+\end{definicion}
+
+Con esta definición podemos dar una definición de éxito referencial para una rexp. y un umbral dados.
+
+\begin{definicion}
+Sea $re = \lbrace p_1,...p_n\rbrace$ una rexp. compuesta por propiedades difusas, $\alpha \in [0,1]$ y un objeto $x \in X$. Diremos que \textbf{$re$ tiene éxito referencial en el nivel $\alpha$ para el objeto $x$} sii:
+
+\begin{center}
+$\underset{p_i \in re}{\bigcap}[[p_i]]_\alpha = \lbrace x \rbrace$
+\end{center}
+\end{definicion}
+
+Esto nos lleva a la siguiente definición:
+
+\begin{definicion}
+El \textbf{conjunto de validez} de $re$ para el objeto $x$ es el conjunto de valores $\alpha$ en los que la rexp. tiene éxito referencial con respecto a $x$. Formalmente definimos este conjunto como sigue:
+\begin{center}
+$V_{re}^x = \left\lbrace \alpha \in [0,1] \mid \underset{p_i \in re}{\bigcap}[[p_i]]_\alpha = \lbrace x \rbrace \right\rbrace$
+\end{center}
+\end{definicion}
+
+Veamos un resultado relacionado con estos conjuntos de validez:
+
+\begin{proposicion}
+Si $V_{re}^x \neq \emptyset$ entonces es un intervalo.
+\end{proposicion}
+
+Lo que nos está diciendo esta proposición es que una rexp., $re$, para la cual $V_{re}^x \neq \emptyset$ comienza a tener éxito referencial en un determinado valor $\alpha_1 \in [0,1]$ y deja de tenerlo en otro (menor o igual) $\alpha_2 \in [0,1]$, con:
+
+\begin{center}
+$\alpha_1 = sup(V_{re}^x)$\\
+$\alpha_2 = inf(V_{re}^x)$
+\end{center}
+
+\begin{proposicion}
+\label{prop3.7}
+Sea $re$ una expresión de referencia con propiedades difusas y $X_{re}$ el conjunto difuso de objetos que satisfacen $re$. Sea $X = \lbrace x_1, x_2, ..., x_m \rbrace$ con $m \geq 2$ de modo que $X_{re}(x_i) \geq X_{re}(x_{i+1}) \forall 1 \leq 1 < m$. Sea $x \in X$ tal que $V_{re}^x \neq \emptyset$. Entonces:
+\begin{enumerate}
+\item $x = x_1$.
+\item $\alpha_1 = X_{re}(x) > X_{re}(x_2) = \alpha_2$.
+\end{enumerate}
+\end{proposicion}
+
+Por lo tanto, cuanto más grande sea $\alpha_1$, mayor será la veracidad de la rexp. para $x$. Y cuanto menor sea $\alpha_2$, menor será esta veracidad para el resto de objetos. En base a esto damos la siguiente definición de medida de éxito referencial, para una rexp. $re$ y un objeto $x$:
+
+\begin{definicion}
+\label{def: medida}
+$rs(re, x) = \left\lbrace 
+\begin{array}{ll}
+      \alpha_1(\alpha_1 - \alpha_2) \; \mathrm{si} \; V_{re}^x \neq \emptyset\\      
+      0 \; \mathrm{en \, otro \, caso}\\
+\end{array} \right.$
+\end{definicion}
+
+Y así tenemos una nueva propuesta de medida de éxito referencial para dominios con información difusa. Así por ejemplo, en la siguiente escena tenemos un círculo verde puro y un círculo amarillo-verdoso (0.7 amarillo + 0.3 verde). Entonces, aunque las expresiones de referencia ``el círculo'' y ``el objeto azul'' son válidas para describir al círculo, la primera será mejor pues siempre es válida y la segunda es válida a partir de grado 0.3.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{img/ejemploMedidaBondad.png}
+\caption{Ejemplo medida de éxito referencial}
+\end{figure}
+
 \subsubsection{Diseño del algoritmo}
 
+Una vez que tenemos la información modelada por medio de una red de información, que nos permite que sea tratable por un ordenador, y conocemos la medida de calidad que buscamos maximizar en las expresiones de referencia que encontremos, tenemos que realizar la búsqueda de dichas expresiones dentro de la r.i.. Para ello diseñamos un algoritmo que realiza un refinamiento iterativo de las soluciones, que va aumentando la profundidad de su búsqueda según lo necesita.\\
+
+El algoritmo intenta obtener las expresiones de referencia lo más cortas posibles; de modo que va probando con expresiones de referencia cada vez más largas (o de mayor coste en nuestro caso) hasta encontrar una que tenga éxito referencial (probaremos hasta un tope máximo de tamaño).\\
+
+Las nuevas propiedades que le añadimos a cada nodo serán combinaciones de relaciones que tenga el nodo con sus vecinos en la red de información, con expresiones de referencia que sean apropiadas para el vecino o vecinos asociados por esas relaciones. Cabe señalar que estas descripciones de los vecinos deberán tener veracidad para ese vecino, es decir, deben poder aplicarse al vecino, pero no tienen que tener éxito referencial; es decir, pueden ser aplicables a otros nodos de la red de información. Además, en el caso de las propiedades de coste 1, éstas son las propiedades internas del nodo, como por ejemplo el color y el tamaño de los elementos de nuestra escena.\\
+
+Lo que hacemos, como es usual cuando se está trabajando con información difusa, es obtener una serie de redes de información con información no difusa a partir de la r.i. que describe la escena. Estos niveles son $\alpha$-cortes de la r.i.. De este modo el primer paso fue diseñar un algoritmo que genere expresiones de referencia para objetos con propiedades no difusas y luego se empleó este algoritmo en cada uno de los niveles en los que hemos descompuesto nuestro problema difuso; siguiendo una estrategia divide y vencerás. Así nuestro algoritmo no difuso puede ser descrito por el siguiente diagrama de flujo:
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{img/diagramaFlujoAlgCrisp.png}
+\caption{Diagrama de flujo para el algoritmo base}
+\end{figure}
+
+Para comprobar si un nodo tiene una expresión de referencia de un coste dado, lo que hacemos es elaborar todas las combinaciones posibles de propiedades del nodo que alcancen como coste total ese coste y ver si, en el sentido no difuso, esta combinación constituye una expresión de referencia con éxito referencial para ese nodo, es decir, que no haya otro nodo de la r.i. que tenga las propiedades que conforman esa expresión de referencia.\\
+
+Señalar que estamos hablando en singular, pero como ya hemos dicho anteriormente para un nodo podemos encontrar diversas expresiones de referencia con el mismo coste. Además, en el caso en que sólo quisiéramos encontrar una expresión de referencia para cada nodo, en lugar de encontrar todas las posibles dentro del peso mínimo necesario, en cuanto un nodo está etiquetado su peso puede propagarse a aquellos vecinos que tengan una referencia única hacia él. Es decir, si un nodo queda con peso 1 con la expresión de referencia ``círculo'', el único vecino suyo que esté a la izquierda tiene automáticamente la expresión de referencia ``el que está a la izquierda de un círculo'' o, si es un triángulo y obligamos a incluir el tipo del objeto en la rexp. ``triángulo a la izquierda de un círculo''.\\
 \subsection{Aplicación Android: Touch and Learn}
 \newpage
 
-\section{Bibliografía}
-\begin{enumerate}[{[}1{]}]
-\item \textbf{On the role of linguistic descriptions of data in the building of natural language generation systems.} A. Ramos-Soto, A. Bugarín y S.Barro. Elsevier. Fuzzy sets and systems. \textit{13 de Julio de 2015}.
-\item \textbf{On generating linguistic descriptions of time series.} Nicolás Marín y Daniel Sánchez. Elsevier. Fuzzy sets and systems. \textit{4 de Mayo de 2015}.
-\end{enumerate}
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{biblio}
 \end{document}
