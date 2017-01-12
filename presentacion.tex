@@ -3,6 +3,8 @@
 \usepackage[spanish]{babel}
 \usepackage{subfigure, wrapfig}
 \usepackage{multirow}
+\usepackage{hyperref} %referencia
+
 
 \date{} %not show date
 
@@ -23,6 +25,8 @@
 \setbeamercolor{title}{fg=brown}
 \setbeamercolor{titlelike}{fg=brown}
 
+\newtheorem{definicion}{Definición}
+\newtheorem{proposicion}{Proposición}
 
 \begin{document}
 	\begin{frame}[plain]
@@ -233,9 +237,151 @@
 			\includegraphics[scale=0.4]{img/RIejemplo1.png}
 		\end{figure}
 	\end{frame}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Emplear la estructura de grafo nos permite aprovechar su potencial.
+			\item Trabajamos con propiedades difusas $\Rightarrow$ Grados de cumplimiento $\Rightarrow$ Escala de intensidad.
+			\item Para las propiedades difusas usuales tenemos el [0,1].
+		\end{itemize}
+	\end{frame}
+	
 	\subsection{Problema}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item Conjunto de objetos $\lbrace x_1, ..., x_n\rbrace$.
+			\item Encontrar una combinación de propieadades $re = \lbrace p_1, ... p_n \rbrace$ con éxito referencial.
+			\item Propiedades difusas $\Rightarrow$ Buscar en cada $\alpha$-corte $\Rightarrow$ Unificar los resultados.
+		\end{itemize}
+	\end{frame}
+	
 	\subsection{Medida de calidad}
+	
+	\begin{frame}
+		\begin{itemize}
+			\item La medida en la cual el conjunto de objetos a los que se les puede aplicar la expresión de referencia está compuesto únicamente por el objeto al que realmente se quiere identificar.
+			\item Proponemos las siguientes propiedades para una medida de éxito referencial:
+				\begin{enumerate}
+					\item $rs(re, x) = 1 \; sii \; X_{re} = \lbrace x \rbrace$.
+					\item Si $X_{re}(x) = 0$ entonces $rs(re, x) = 0$.
+					\item Si $X_{re}(y) \leq X_{re'}(y), \forall y \in X\setminus\lbrace x\rbrace$ y $X_{re}(x) \geq X_{re'}(x)$ entonces $rs(re, x) \geq rs(re', x)$.
+				\end{enumerate}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{definicion}
+			Sea $re = \lbrace p_1,...p_n\rbrace$ una rexp. compuesta por propiedades difusas, $\alpha \in [0,1]$ y un objeto $x \in X$. Diremos que \textbf{$re$ tiene éxito referencial en el nivel $\alpha$ para el objeto $x$} sii:
+
+			\begin{center}
+				$\underset{p_i \in re}{\bigcap}[[p_i]]_\alpha = \lbrace x \rbrace$
+			\end{center}
+		\end{definicion}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{definicion}
+			El \textbf{conjunto de validez} de $re$ para el objeto $x$ es el conjunto de valores $\alpha$ en los que la rexp. tiene éxito referencial con respecto a $x$. Formalmente definimos este conjunto como sigue:
+			\begin{center}
+				$V_{re}^x = \left\lbrace \alpha \in [0,1] \mid \underset{p_i \in re}{\bigcap}[[p_i]]_\alpha = \lbrace x \rbrace \right\rbrace$
+			\end{center}
+		\end{definicion}
+
+		Veamos un resultado relacionado con estos conjuntos de validez:
+
+		\begin{proposicion}
+			Si $V_{re}^x \neq \emptyset$ entonces es un intervalo.
+		\end{proposicion}
+	\end{frame}
+	
+	\begin{frame}
+		Cuanto más grande sea $\alpha_1$, mayor será la veracidad de la rexp. para $x$. Y cuanto menor sea $\alpha_2$, menor será esta veracidad para el resto de objetos. En base a esto damos la siguiente definición de medida de éxito referencial, para una rexp. $re$ y un objeto $x$:
+
+		\begin{definicion}
+		\label{def: medida}
+			$rs(re, x) = \left\lbrace 
+			\begin{array}{ll}
+      			\alpha_1(\alpha_1 - \alpha_2) \; \mathrm{si} \; V_{re}^x \neq \emptyset\\      
+      			0 \; \mathrm{en \, otro \, caso}\\
+			\end{array} \right.$
+		\end{definicion}
+	\end{frame}
+	
 	\subsection{Algoritmo}
+	
+	\begin{frame}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.3]{img/diagramaFlujoAlgCrisp.png}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.55\textwidth]{img/ejemploAlgoritmoNoDifuso.png}
+			\includegraphics[width=0.6\textwidth]{img/riEjemploAlgoritmoNoDifuso.png}		
+		\end{figure}		
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\includegraphics[width=0.5\textwidth]{img/riEjemploAlgoritmoDifusoCorte05.png}
+			\includegraphics[width=0.5\textwidth]{img/riEjemploAlgoritmoDifusoCorte1.png}
+		\end{figure}		
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\includegraphics[width=1\textwidth]{img/tabla.png}			
+		\end{figure}
+	\end{frame}
+	
+	\subsection{Información difusa}
+	
+	\begin{frame}
+		\begin{figure}
+			\includegraphics[width=1\textwidth]{img/partitionColor.png}			
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\includegraphics[width=1\textwidth]{img/partitionRelPos.png}			
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\includegraphics[width=1\textwidth]{img/partitionTam.png}			
+		\end{figure}
+	\end{frame}
+	
+	\subsection{Demo}
+	
+	\begin{frame}
+		\begin{center}
+			\href{https://www.youtube.com/watch?v=sfQNCcHsYu8}{Vídeo demo.}
+		\end{center}
+	\end{frame}
+	
+	\section*{}
+	
+	\begin{frame}[plain]
+		\frametitle{Bibliografía}
+		\nocite{*}
+		\bibliographystyle{unsrt}
+		\bibliography{biblioResumen}
+	\end{frame}
+	
+	\begin{frame}[plain]
+		\begin{center}
+			Gracias. ¿Preguntas?
+		\end{center}
+	\end{frame}
+		
+		
 	
 	
 	
