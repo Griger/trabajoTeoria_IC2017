@@ -8,7 +8,14 @@
 
 \usepackage{color} %Use custom colors and give color to text
 \usepackage{graphicx} %Include images
+\usepackage{float}
+\usepackage{subfig}
 \usepackage{enumerate}
+
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{hyperref} %referencia
 
 \author{\textbf{Gustavo Rivas Gervilla}}
 \title{\textcolor{deepblue}{\textbf{Lógica difusa para la descripción de datos}}}
@@ -237,7 +244,7 @@ Así la aplicación muestra una escena compuesta por diversas formas de distinto
 
 Veamos un ejemplo de lo que se muestra al usuario:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=40mm]{img/ejemplo1.png}
 \caption{Señala el triángulo verde} \label{Escena de ejemplo}
@@ -247,7 +254,7 @@ En nuestro caso nos centramos en una escena compuesta por figuras, pero obviamen
 
 Las expresiones de referencia se construyen a partir de la información de la que dispongamos del objeto a describir (teniendo en cuenta la que tenemos del resto de objetos) con lo cual el primer problema que abordamos es definir un mecanismo de representación del conocimiento con el cual poder manejar toda la información que podemos tener. Para ello definimos un concepto matemático que llamamos red de información. Aquí tenemos como se representa la información de la escena anterior por medio de una red de información:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{img/RIejemplo1.png}
 \caption{Red de información de ejemplo} \label{RI ejemplo}
@@ -425,7 +432,7 @@ $rs(re, x) = \left\lbrace
 
 Y así tenemos una nueva propuesta de medida de éxito referencial para dominios con información difusa. Así por ejemplo, en la siguiente escena tenemos un círculo verde puro y un círculo amarillo-verdoso (0.7 amarillo + 0.3 verde). Entonces, aunque las expresiones de referencia ``el círculo'' y ``el objeto azul'' son válidas para describir al círculo, la primera será mejor pues siempre es válida y la segunda es válida a partir de grado 0.3.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{img/ejemploMedidaBondad.png}
 \caption{Ejemplo medida de éxito referencial}
@@ -441,7 +448,7 @@ Las nuevas propiedades que le añadimos a cada nodo serán combinaciones de rela
 
 Lo que hacemos, como es usual cuando se está trabajando con información difusa, es obtener una serie de redes de información con información no difusa a partir de la r.i. que describe la escena. Estos niveles son $\alpha$-cortes de la r.i.. De este modo el primer paso fue diseñar un algoritmo que genere expresiones de referencia para objetos con propiedades no difusas y luego se empleó este algoritmo en cada uno de los niveles en los que hemos descompuesto nuestro problema difuso; siguiendo una estrategia divide y vencerás. Así nuestro algoritmo no difuso puede ser descrito por el siguiente diagrama de flujo:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{img/diagramaFlujoAlgCrisp.png}
 \caption{Diagrama de flujo para el algoritmo base}
@@ -450,7 +457,91 @@ Lo que hacemos, como es usual cuando se está trabajando con información difusa
 Para comprobar si un nodo tiene una expresión de referencia de un coste dado, lo que hacemos es elaborar todas las combinaciones posibles de propiedades del nodo que alcancen como coste total ese coste y ver si, en el sentido no difuso, esta combinación constituye una expresión de referencia con éxito referencial para ese nodo, es decir, que no haya otro nodo de la r.i. que tenga las propiedades que conforman esa expresión de referencia.\\
 
 Señalar que estamos hablando en singular, pero como ya hemos dicho anteriormente para un nodo podemos encontrar diversas expresiones de referencia con el mismo coste. Además, en el caso en que sólo quisiéramos encontrar una expresión de referencia para cada nodo, en lugar de encontrar todas las posibles dentro del peso mínimo necesario, en cuanto un nodo está etiquetado su peso puede propagarse a aquellos vecinos que tengan una referencia única hacia él. Es decir, si un nodo queda con peso 1 con la expresión de referencia ``círculo'', el único vecino suyo que esté a la izquierda tiene automáticamente la expresión de referencia ``el que está a la izquierda de un círculo'' o, si es un triángulo y obligamos a incluir el tipo del objeto en la rexp. ``triángulo a la izquierda de un círculo''.\\
+
+Este algoritmo lo aplicamos sobre cada uno de los $\alpha$-cortes de la red de información con propiedades difusas con la que estemos trabajando, los $\alpha$-cortes que consideramos son aquellos dados por los grados distintos que presenten las propiedades y relaciones de la r.i.. No tiene sentido considerar otros ya que entre uno de los grados que estén presentes en lar r.i. y el siguiente no cambiará el $\alpha$-corte resultante.
+
+El diagrama de flujo para el algoritmo con el que buscamos y seleccionamos expresiones de referencia para los nodos de una r.i. con información difusa sería el siguiente:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{img/diagramaFlujoAlgFuzzy.png}
+\caption{Diagrama de flujo para el algoritmo para información difusa}
+\end{figure}
+
+Veamos un ejemplo para la siguiente escena cuya información puede modelarse por medio de una r.i. como sigue:
+
+\begin{figure}[H]
+\subfloat[escena]{\includegraphics[width=0.55\textwidth]{img/ejemploAlgoritmoNoDifuso.png}}
+\subfloat[r.i.]{\includegraphics[width=0.6\textwidth]{img/riEjemploAlgoritmoNoDifuso.png}}
+\end{figure}
+
+Entonces en este caso tan trivial se establecerían dos $\alpha$-cortes distintos, el de grado 0.5 y el de grado 1, que se corresponderían con las dos r.i. siguientes:\\
+
+\begin{figure}[H]
+\subfloat[0.5-corte]{\includegraphics[width=0.5\textwidth]{img/riEjemploAlgoritmoDifusoCorte05.png}}
+\subfloat[1-corte]{\includegraphics[width=0.5\textwidth]{img/riEjemploAlgoritmoDifusoCorte1.png}}
+\end{figure}
+
+Entonces estas serían las expresiones de referencia que se encontrarían para cada nodo en cada uno de los niveles, aplicando el algoritmo no difuso en ambos. También mostramos el intervalo de grados donde tendrían validez dichas expresiones junto con la medida de bondad asociada:
+
+\begin{table}[H]
+\centering
+\caption{Expresiones de referencia encontradas}
+\label{my-label}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Corte                                          & Nodo & Rexp. encontradas                      & Intervalo   & Medida \\ \hline
+\multirow{3}{*}{0.5-corte}                     & A    & {[}círculo{]}                          & {[}0,1{]}   & 1      \\ \cline{2-5} 
+                                               & B    & {[}triángulo, a la izda. de círculo{]} & {[}0,1{]}   & 1      \\ \cline{2-5} 
+                                               & C    & {[}triángulo, verde{]}                 & {[}0,0.5{]} & 0.25   \\ \hline
+\multicolumn{5}{|l|}{}                                                                                                \\ \hline
+\multicolumn{1}{|c|}{\multirow{3}{*}{1-corte}} & A    & {[}círculo{]}                          & {[}0,1{]}   & 1      \\ \cline{2-5} 
+\multicolumn{1}{|c|}{}                         & B    & {[}triángulo, azul{]}                  & {[}0.5,1{]} & 0.5    \\ \cline{2-5} 
+\multicolumn{1}{|c|}{}                         & C    & {[}triángulo, a la dcha. de círculo{]} & {[}0,1{]}   & 1      \\ \hline
+\end{tabular}
+\end{table}
+
+Aquí podemos observar también cómo funciona nuestra medida, nos dice que las expresiones de referencia para los triángulos que usan el color son peores que aquellas que, siendo algo más largas, emplean las posiciones relativas entre los triángulos y el círculo, ya que estas son más concretas que hablar del color que, en uno de los dos triángulos no está del todo claro.\\
+
 \subsection{Aplicación Android: Touch and Learn}
+
+Ya hemos dicho de qué trata nuestra aplicación y como sabemos nosotros trabajamos con información difusa. En concreto los componentes de la escena que se le presenta al niño que presentan información difusa son: el color, el tamaño y las posiciones relativas entre las figuras. La forma o el tipo de figura no será difuso, podríamos decir que sí lo es, pero el tipo que le asignamos a una figura será único con grado 1. Pues bien vamos a ver cómo representamos está información con incertidumbre en nuestra aplicación.
+
+Los tamaños con los que trabajamos en nuestra aplicación están en unidad de píxels de pantalla y etiquetaremos cada figura según su radio en esta medida, variando entre 50 y 150 píxels. Cuando hablamos de radio para un triángulo o un cuadrado, hablamos del radio del círculo en el que el triángulo está circunscrito o del radio del círculo que está inscrito en el cuadrado.\\
+
+Las etiquetas que le asociamos a una figura según su radio vienen dadas por la siguiente partición difusa del rango de tamaños en los que se moverán las figuras:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{img/partitionTam.png}
+\caption{Partición difusa para el tamaño de las figuras}
+\end{figure}
+
+Ahora para calcular la posición relativa de una figura con respecto a la otra medimos el ángulo que forma el centro de la otra figura con respecto al centro de la figura a la que queremos calcular sus posiciones relativas. Entonces la partición difusa que haremos para establecer las relaciones espaciales de una figura con otra vendrán dadas por la siguiente partición en el intervalo [0,360]:\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{img/partitionRelPos.png}
+\caption{Partición difusa para la posición relativa entre figuras}
+\end{figure}
+
+Ahora pasemos al color, para etiquetar el color de las figuras nos inspiramos en las particiones difusas que se hacen sobre el cono del espacio HSV de color en \cite{artDaniHSV}. Nosotros no jugamos con todo el espectro de etiquetas que en este artículo se plantea si no que distinguimos entre colores con saturación y brillo con valor 1, es decir los colores más brillantes y saturados, y la escala de grises que obtenemos si bajamos la saturación a cero, fijamos un número cualquiera para el hue (H) del color (en nuestro caso fijamos el cero) y movemos el brillo del color en el [0,1]. Así los colores con saturación máxima se etiquetaran por un lado y lo colores con saturación nula por otro, según las siguientes particiones difusas:\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{img/partitionColor.png}
+\caption{Partición difusa para los colores de las figuras}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = \textwidth]{img/partitionGrey.png}
+\caption{Partición difusa para la escala de grises de los colores de las figuras}
+\end{figure}
+
+Hemos de señalar que aquí aparecen colores que quizás sean difíciles de identificar por un niño como el color aguamarina, pero esto es sólo la gama de colores que empleamos en nuestra aplicación a modo de muestra. Podríamos haber definido otra partición difusa distinta con otras etiquetas distintas, el funcionamiento de la aplicación, y del algoritmo en particular, no se verían afectados.\\
+
+Para ver una demostración del funcionamiento de la aplicación podemos visitar \href{https://www.youtube.com/watch?v=sfQNCcHsYu8}{el vídeo} que se realizó para tal efecto durante el desarrollo del Trabajo Fin de Grado.
 \newpage
 
 \nocite{*}
